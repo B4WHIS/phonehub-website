@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "SVN-Freude";
+  /* src: url("../fonts/SVN-Freude.otf") format("woff");
+  src: url("../fonts/SVN-Gumley.otf") format("woff"); */
+  src: url("../fonts/MJ-Modern-Regular.ttf") format("woff");
+  font-weight: normal;
+}
+
+/* body {
+  font-family: "MJ-Modern-Regular", "SVN-Road Rage", "SVN-Gumley", "SVN-Freude";
+} */
