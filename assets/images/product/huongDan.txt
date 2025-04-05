@@ -1,0 +1,9 @@
+- một điện thoại là 2 ảnh 2 màu khác nhau
+- đặt tên theo định dạng: tên hãng-tên điện thoại-màu sắc
+- lưu trong folder hãng riêng không tạo thêm folder
+
+vi du:
+img/
+├── products/
+│   ├── samsung/
+│   │   ├── galaxy-s23.jpg
