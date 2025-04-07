@@ -1,12 +1,44 @@
 const products = {
-  iphone: [
+  apple: [
     {
       id: "iphone-16-pro-max",
-      name: "Iphone 16 Pro Max",
-      price: "34.990.000 VNĐ",
-      image: "../assets/images/product/apple/iphone-16-pro-max.jpg",
-      description:
-        "iPhone 16 Pro Max sở hữu màn hình Super Retina XDR OLED 6.9 inch với công nghệ ProMotion, mang lại trải nghiệm hiển thị mượt mà và sắc nét, lý tưởng cho giải trí và làm việc. Với chipset A18 Pro mạnh mẽ, mẫu iPhone đời mới này cung cấp hiệu suất vượt trội, giúp xử lý mượt mà các tác vụ nặng như chơi game hay edit video. Chiếc điện thoại iPhone 16 mới này còn sở hữu hệ thống camera Ultra Wide 48MP cho khả năng chụp ảnh cực kỳ chi tiết, mang đến chất lượng hình ảnh ấn tượng trong mọi tình huống.",
-    },
+      name: "iPhone 16 Pro Max",
+      basePrice: "31.190.000₫",
+      mainImage: "../assets/images/product/apple/iphone-16-pro-max.jpg",
+      variants: [
+        {
+          color: "Vàng Titan",
+          colorCode: "#FFD700",
+          colorClass: "btn-warning",
+          images: [
+            "../assets/images/product/apple/iphone-16-pro-max.jpg",
+           "../assets/images/product/apple/iphone-16-pro-max-titan-den.webp"
+          ],
+          storageOptions: [
+            { capacity: "128GB", price: "31.190.000₫" },
+            { capacity: "256GB", price: "34.190.000₫" },
+            { capacity: "512GB", price: "38.190.000₫" }
+          ]
+        },
+        {
+          color: "Đen Titan",
+          colorCode: "#000000",
+          colorClass: "btn-dark",
+          images: [
+             "../assets/images/product/apple/iphone-16-pro-max-titan-den.webp",
+            "../assets/images/product/apple/iphone-16-pro-max.jpg"
+           
+           
+          ],
+          storageOptions: [
+            { capacity: "128GB", price: "31.190.000₫" },
+            { capacity: "256GB", price: "34.190.000₫" },
+            { capacity: "512GB", price: "38.190.000₫" }
+          ]
+        }
+      ],
+      description: "iPhone 16 Pro Max với thiết kế mới nhất, hiệu năng vượt trội và camera chuyên nghiệp. Phiên bản cao cấp nhất của Apple với màn hình Super Retina XDR 6.7 inch, chip A18 Pro và khả năng chống nước IP68."
+    }
   ],
+  
 };
