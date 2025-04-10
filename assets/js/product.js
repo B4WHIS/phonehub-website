@@ -274,4 +274,6 @@ const products = {
         "iPhone X được trang bị chip A11 Bionic với 6 nhân CPU và 3 nhân GPU, cung cấp hiệu năng mạnh mẽ cho các tác vụ hàng ngày. Màn hình Super Retina OLED 5.8 inch với độ phân giải 1125 x 2436 pixels mang đến hình ảnh sắc nét và màu sắc sống động. iPhone X sở hữu hệ thống camera kép 12MP với công nghệ chống rung quang học (OIS) và khả năng chụp ảnh chân dung xóa phông chuyên nghiệp. Ngoài ra, máy còn hỗ trợ tính năng nhận diện khuôn mặt Face ID và sạc không dây tiện lợi.",
     },
   ],
+
+  oppo: [],
 };
