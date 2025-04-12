@@ -20,31 +20,7 @@
         background-color: #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
-      .reveal {
-        opacity: 0;
-        transition: all 0.8s ease-in-out;
-      }
-      .reveal.active {
-        opacity: 1;
-      }
-      .reveal-left {
-        transform: translateX(-50px);
-      }
-      .reveal-right {
-        transform: translateX(50px);
-      }
-      .reveal-top {
-        transform: translateY(-50px);
-      }
-      .reveal-bottom {
-        transform: translateY(50px);
-      }
-      .reveal.active.reveal-left,
-      .reveal.active.reveal-right,
-      .reveal.active.reveal-top,
-      .reveal.active.reveal-bottom {
-        transform: translateX(0) translateY(0);
-      }
+
       #home {
         height: 100vh;
         display: flex;
@@ -94,6 +70,13 @@
       .product-list .col {
         flex: 0 0 20%;
         max-width: 20%;
+      }
+      .brand-section h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 5px;
       }
     </style>
   </head>
@@ -193,490 +176,16 @@
     </section>
 
     <!-- Sản phẩm -->
-    <section id="products" class="py-5 bg-white">
+    <section id="products" class="py-5 mt-5">
       <div class="container">
-        <h2 class="text-center mb-5 reveal reveal-top">Sản phẩm nổi bật</h2>
-
-        <!-- iPhone -->
-        <h4 class="reveal reveal-left">iPhone</h4>
-        <div class="product-slider reveal reveal-bottom">
-          <div class="product-list" id="iphone-list">
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/apple/iphone-16-pro-max.jpg"
-                  alt="iPhone 16 Pro Max"
-                />
-                <div class="card-body">
-                  <h5>iPhone 16 Pro Max</h5>
-                  <p>31.190.000₫</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=iphone-16-pro-max"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/apple/iphone-15-hong.jpg"
-                  alt="iPhone 15 Pro"
-                />
-                <div class="card-body">
-                  <h5>iPhone 15 Pro Max</h5>
-                  <p>24.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=iphone-15"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/apple/iPhone-14-plus-xanh.jpg"
-                  alt="iPhone 14 Plus"
-                />
-                <div class="card-body">
-                  <h5>iPhone 14 Plus</h5>
-                  <p>19.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=iphone-14-plus"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/apple/iphone-13-den.jpg"
-                  alt="iPhone 13"
-                />
-                <div class="card-body">
-                  <h5>iPhone 13</h5>
-                  <p>17.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=iphone-13"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/apple/iphone-12-tim.jpg"
-                  alt="iPhone 12"
-                />
-                <div class="card-body">
-                  <h5>iPhone 12</h5>
-                  <p>14.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=iphone-12"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/apple/iphone-11-pro-max-vang.webp"
-                  alt="iPhone 11 ProMax"
-                />
-                <div class="card-body">
-                  <h5>iPhone 11 Pro Max</h5>
-                  <p>12.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=iphone-11-pro-max"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/apple/iphone-x-trang.webp"
-                  alt="iPhone X"
-                />
-                <div class="card-body">
-                  <h5>iPhone X</h5>
-                  <p>11.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=iphone-x"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/apple/iphone-se-den.webp"
-                  alt="iPhone X"
-                />
-                <div class="card-body">
-                  <h5>iPhone SE</h5>
-                  <p>8.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=iphone-se"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button
-            class="btn btn-outline-dark position-absolute top-50 start-0 translate-middle-y"
-            onclick="slide('iphone-list', -1)"
-          >
-            <
-          </button>
-          <button
-            class="btn btn-outline-dark position-absolute top-50 end-0 translate-middle-y"
-            onclick="slide('iphone-list', 1)"
-          >
-            >
-          </button>
-        </div>
-
-        <!-- Samsung -->
-        <h4 class="reveal reveal-left mt-5">Samsung</h4>
-        <div class="product-slider reveal reveal-bottom">
-          <div class="product-list" id="samsung-list">
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/samsung/galaxy-a55-5g-trang.jpg"
-                  alt="Samsung galaxy a55"
-                />
-                <div class="card-body">
-                  <h5>Samsung A55</h5>
-                  <p>8.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=samsung-a55"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/samsung/galaxy-s23-xanhla.jpg"
-                  alt="Samsung Galaxy S23"
-                />
-                <div class="card-body">
-                  <h5>Samsung S23</h5>
-                  <p>12.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=samsung-s23"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/samsung/galaxy-s24plus-tim.jpg"
-                  alt="Samsung S24 Plus"
-                />
-                <div class="card-body">
-                  <h5>Samsung S24 Plus</h5>
-                  <p>11.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=samsung-s24"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/samsung/galaxy-s25-trang.jpg"
-                  alt="Samsung S25"
-                />
-                <div class="card-body">
-                  <h5>Samsung S25</h5>
-                  <p>13.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=samsung-s25"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/samsung/galaxy-s25plus-xanh.jpg"
-                  alt="Samsung S25 Plus"
-                />
-                <div class="card-body">
-                  <h5>Samsung S25 Plus</h5>
-                  <p>34.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=samsung-s25-plus"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/samsung/galaxy-zflip5-xanhla.jpg"
-                  alt="Samsung ZFlip5"
-                />
-                <div class="card-body">
-                  <h5>Samsung ZFlip 5</h5>
-                  <p>25.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=samsung-zflip5"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/samsung/galaxy-zflip6-xanh.jpg"
-                  alt="Samsung ZFlip6"
-                />
-                <div class="card-body">
-                  <h5>Samsung ZFlip 6</h5>
-                  <p>28.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=samsung-zflip6"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/samsung/galaxy-zfold6-trang.jpg"
-                  alt="Samsung ZFold6"
-                />
-                <div class="card-body">
-                  <h5>Samsung ZFold 6</h5>
-                  <p>43.590.000 VNĐ</p>
-                  <div class="button-group">
-                    <a
-                      href="../pages/product-detail.html?id=samsung-zflop6"
-                      class="btn btn-dark"
-                      >Xem chi tiết</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button
-          class="btn btn-outline-dark position-absolute top-50 start-0 translate-middle-y"
-          onclick="slide('samsung-list', -1)"
-        >
-          &lt;
-        </button>
-        <button
-        class="btn btn-outline-dark position-absolute top-50 end-0 translate-middle-y"
-        onclick="slide('samsung-list', 1)"
-         >
-  &gt;
-          </button>
-        </div>
-        
-        <!-- Vivo -->
-        <h4 class="reveal reveal-left">Vivo</h4>
-        <div class="product-slider reveal reveal-bottom">
-          <div class="product-list" id="vivo-list">
-
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/vivo/vivo-v30e-nau.webp"
-                  alt="oppo-reno-10-plus"
-                />
-                <div class="card-body">
-                  <h5>Vivo V30e</h5>
-                  <p>11.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a href="../pages/product-detail.html?id=vivov30e" class="btn btn-dark">Xem chi tiết</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/vivo/vivo-v40-cam.jpg"
-                  alt="oppo-reno-12"
-                />
-                <div class="card-body">
-                  <h5>Vivo V40</h5>
-                  <p>19.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a href="../pages/product-detail.html?id=vivov40" class="btn btn-dark">Xem chi tiết</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/vivo/vivo-y03-den.webp"
-                  alt="oppo-reno-13f"
-                />
-                <div class="card-body">
-                  <h5>Vivo Y03</h5>
-                  <p>9.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a href="../pages/product-detail.html?id=vivoy03" class="btn btn-dark">Xem chi tiết</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/vivo/vivo-y100-den.webp"
-                  alt="oppo-a78-xanh"
-                />
-                <div class="card-body">
-                  <h5>Vivo Y100</h5>
-                  <p>7.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a href="../pages/product-detail.html?id=vivoy100" class="btn btn-dark">Xem chi tiết</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/vivo/vivo-y18s-den.webp"
-                  alt="Oppo Find N2 Flip"
-                />
-                <div class="card-body">
-                  <h5>Vivo Y18s</h5>
-                  <p>6.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a href="../pages/product-detail.html?id=vivoy18s" class="btn btn-dark">Xem chi tiết</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/vivo/vivo-y19s-den.webp"
-                  alt="oppo-a5-pro"
-                />
-                <div class="card-body">
-                  <h5>Vivo Y19s</h5>
-                  <p>10.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a href="../pages/product-detail.html?id=vivoy19s" class="btn btn-dark">Xem chi tiết</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card product-card">
-                <img
-                  src="../assets/images/product/vivo/vivo-y21-trang.webp"
-                  alt="oppo-a3.png"
-                />
-                <div class="card-body">
-                  <h5>Vivo Y21</h5>
-                  <p>5.990.000 VNĐ</p>
-                  <div class="button-group">
-                    <a href="../pages/product-detail.html?id=vivoy21" class="btn btn-dark">Xem chi tiết</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button
-            class="btn btn-outline-dark position-absolute top-50 start-0 translate-middle-y"
-            onclick="slide('vivo-list', -1)"
-          >
-            <
-          </button>
-          <button
-            class="btn btn-outline-dark position-absolute top-50 end-0 translate-middle-y"
-            onclick="slide('vivo-list', 1)"
-          >
-            >
-          </button>
-        </div>
-            <div class="d-flex justify-content-center mt-4">
-              <a href="#" style="font-size: 30px; font-weight: 700; color: black;" >Xem them san pham >>>></a>
-            </div>
+        <h2 class="text-center mb-4">Danh sách sản phẩm</h2>
+        <div id="product-brands"></div>
+      </div>
     </section>
 
     <!-- Liên hệ -->
     <section id="contact" class="py-5">
-      <div class="container reveal reveal-top">
+      <div class="container">
         <h2 class="text-center mb-4">Liên hệ</h2>
         <p class="text-center">
           Email: contact@phonehub.com | Hotline: 0123-456-789
@@ -690,46 +199,118 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Import file product.js chứa dữ liệu sản phẩm -->
+    <script src="/assets/js/product.js"></script>
 
     <script>
-      function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals[i].getBoundingClientRect().top;
-          var elementBottom = reveals[i].getBoundingClientRect().bottom;
-          var elementVisible = 150;
-          if (
-            elementTop < windowHeight - elementVisible &&
-            elementBottom > elementVisible
-          ) {
-            reveals[i].classList.add("active");
-          } else {
-            reveals[i].classList.remove("active");
-          }
-        }
-      }
-      window.addEventListener("scroll", reveal);
-      reveal();
-
-      // Product Slider
+      // Định nghĩa object sliders (hiện không dùng, có thể xóa nếu không cần)
       const sliders = {
         "iphone-list": { index: 0, max: 3 },
         "samsung-list": { index: 0, max: 3 },
         "oppo-list": { index: 0, max: 3 },
-         "xiaomi-list": { index: 0, max: 3 },
+        "xiaomi-list": { index: 0, max: 3 },
         "vivo-list": { index: 0, max: 3 },
-        "realme-list": { index: 0, max: 3 }
+        "realme-list": { index: 0, max: 3 },
       };
-      function slide(listId, direction) {
-        const slider = sliders[listId];
-        const list = document.getElementById(listId);
-        const itemWidth = list.querySelector(".col").offsetWidth;
-        slider.index += direction;
-        if (slider.index < 0) slider.index = 0;
-        if (slider.index > slider.max) slider.index = slider.max;
-        list.style.transform = `translateX(-${slider.index * itemWidth}px)`;
+
+      // Định nghĩa hàm displayProducts để hiển thị danh sách sản phẩm
+      function displayProducts() {
+        // Tìm phần tử có ID "product-brands"
+        const productBrands = document.getElementById("product-brands");
+        // Xóa nội dung cũ trong productBrands
+        productBrands.innerHTML = ""; // Xóa nội dung cũ
+
+        // Duyệt qua từng hãng trong object products
+        for (const brand in products) {
+          // Tạo một div mới cho section của hãng
+          const brandSection = document.createElement("div");
+          // Gán class "brand-section mb-5 reveal" (thêm class reveal để áp dụng hiệu ứng)
+          brandSection.className = "brand-section mb-5 reveal";
+          // Gán nội dung HTML cho brandSection (tiêu đề hãng và div chứa danh sách sản phẩm)
+          brandSection.innerHTML = `
+        <h3 class="mb-3">${brand.charAt(0).toUpperCase() + brand.slice(1)}</h3>
+        <div class="row" id="product-list-${brand}">
+        </div>
+      `;
+          // Thêm brandSection vào productBrands
+          productBrands.appendChild(brandSection);
+
+          // Tìm div chứa danh sách sản phẩm của hãng
+          const productList = document.getElementById(`product-list-${brand}`);
+          // Duyệt qua từng sản phẩm trong danh sách sản phẩm của hãng
+          products[brand].forEach((product) => {
+            // Tạo một div mới cho sản phẩm
+            const col = document.createElement("div");
+            // Gán class "col-md-4 col-lg-3 mb-4" để định dạng theo lưới Bootstrap
+            col.className = "col-md-4 col-lg-3 mb-4";
+            // Gán nội dung HTML cho col (hiển thị sản phẩm: ảnh, tên, giá, nút)
+            col.innerHTML = `
+          <div class="card product-card">
+            <img src="${product.mainImage}" alt="${product.name}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">${product.basePrice}</p>
+              <div class="button-group">
+                <button class="btn btn-outline-dark" onclick="addToCart('${product.id}')">Thêm</button>
+                <a href="/pages/product-detail.html?id=${product.id}" class="btn btn-dark">Xem chi tiết</a>
+              </div>
+            </div>
+          </div>
+        `;
+            // Thêm col (sản phẩm) vào productList
+            productList.appendChild(col);
+          });
+        }
+
+        // Gọi lại hàm reveal() để áp dụng hiệu ứng cho các section sản phẩm vừa tạo
+        reveal();
       }
+
+      // Định nghĩa hàm addToCart để thêm sản phẩm vào giỏ hàng
+      function addToCart(productId) {
+        // Khởi tạo biến product để lưu thông tin sản phẩm
+        let product = null;
+        // Duyệt qua từng hãng để tìm sản phẩm có ID khớp với productId
+        for (const brand in products) {
+          // Tìm sản phẩm trong danh sách sản phẩm của hãng
+          product = products[brand].find((p) => p.id === productId);
+          // Nếu tìm thấy, thoát vòng lặp
+          if (product) break;
+        }
+
+        // Kiểm tra nếu không tìm thấy sản phẩm
+        if (!product) {
+          // Hiển thị thông báo lỗi và thoát hàm
+          alert("Sản phẩm không tồn tại!");
+          return;
+        }
+
+        // Lấy giỏ hàng từ localStorage, nếu không có thì tạo mảng rỗng
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+        const existingItem = cart.find((item) => item.id === productId);
+        // Nếu sản phẩm đã có, tăng số lượng lên 1
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          // Nếu sản phẩm chưa có, thêm sản phẩm mới vào giỏ
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.basePrice,
+            image: product.mainImage,
+            quantity: 1,
+          });
+        }
+
+        // Lưu giỏ hàng đã cập nhật vào localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+        // Hiển thị thông báo xác nhận
+        alert(`Đã thêm ${product.name} vào giỏ hàng!`);
+      }
+
+      // Gọi hàm displayProducts để hiển thị danh sách sản phẩm khi trang tải
+      displayProducts();
     </script>
   </body>
 </html>
