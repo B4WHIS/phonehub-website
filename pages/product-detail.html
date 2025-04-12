@@ -367,28 +367,14 @@
         }
       });
 
-      function addToCart(item) {
-        // Get current cart from localStorage or initialize empty array
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        // Add new item to cart
-        cart.push(item);
-
-        // Save back to localStorage
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        // Show success message
-        alert(
-          `Đã thêm ${item.name} (${item.color}, ${item.storage}) vào giỏ hàng!`
-        );
-
+      
         // You can also update cart counter here if you have one
-      }
+      
     </script>
   </body>
 </html>
 
-<html lang="en">
+<!-- <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -554,7 +540,7 @@
     </main>
     <script src="../assets/js/cart.js"></script>
   </body>
-</html>
+</html> -->
 <!-- fgeg
 document.addEventListener("DOMContentLoaded", () => {
   const addCartBtn = document.querySelector(".add-cart");
