@@ -125,7 +125,7 @@
               <a class="nav-link" href="../index.html#contact">Liên hệ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../index.html#cart">Giỏ hàng</a>
+              <a class="nav-link" href="../pages/cart.html">Giỏ hàng</a>
             </li>
           </ul>
           <div class="d-flex">
@@ -138,7 +138,7 @@
 
     <section class="py-5 mt-3">
       <h1 class="container border-bottom" id="product-name"></h1>
-      <div class="container all p-4">
+      <div class="container all p-4" id="product-container">
         <div class="row">
           <div class="col-md-6 product-detail d-flex flex-column">
             <img
@@ -155,9 +155,9 @@
           <div class="col-md-6 mt-5 right">
             <div class="content-detail">
               <p class="dl">Dung lượng:</p>
-              <ul id="storage-options" class="list-dl"></ul>
+              <ul id="storage-options" class="list-dl selected"></ul>
               <p class="dl">Màu sắc:</p>
-              <ul id="color-options" class="list-ms"></ul>
+              <ul id="color-options" class="list-ms selected"></ul>
               <p id="product-price" class="lead"></p>
               <p class="dl">Giới thiệu về máy:</p>
               <p id="product-description"></p>
@@ -371,264 +371,6 @@
         // You can also update cart counter here if you have one
       
     </script>
-  </body>
-</html>
-
-<!-- <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Product detail</title>
-    <link rel="stylesheet" href="../assets/css/product_detail.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <img alt="Logo" src="https://placehold.co/50x50" />
-      </div>
-      <nav>
-        <a href="#">
-          <i class="fab fa-apple"> </i>
-          Apple
-        </a>
-        <a href="#"> Samsung </a>
-        <a href="#">
-          <i class="fab fa-xiaomi"> </i>
-          Xiaomi
-        </a>
-        <a href="#"> Oppo </a>
-        <a href="#"> VIVO </a>
-        <a href="#"> Realme </a>
-        <a href="#"> Huawei </a>
-        <a href="#"> <i class="fab fa-google"></i> Google </a>
-        <a href="#"> OnePlus </a>
-      </nav>
-      <div class="search-bar">
-        <input placeholder="Bạn cần gì..." type="text" />
-        <i class="fas fa-search"> </i>
-      </div>
-      <div class="user-cart">
-        <a href="#">
-          <i class="fas fa-user"> </i>
-          Đăng nhập
-        </a>
-        <a href="../pages/cart.html">
-          <i class="fas fa-shopping-cart"> </i>
-          Giỏ hàng
-          <div class="totalQuantity">0</div>
-        </a>
-      </div>
-    </header>
-    <main>
-      <h1 class="product-title">IPhone 15 pro max</h1>
-      <div class="product-container">
-        <div class="img-phone">
-          <img alt="iPhone 15 Pro Max" src="../assets/images/logo/iphone.jpg" />
-          <div class="more-info">
-            <img alt="iPhone 15 Pro Max" src="../assets/images/logo/ip1.jpg" />
-            <img alt="iPhone 15 Pro Max" src="../assets/images/logo/ip2.jpg" />
-            <img alt="iPhone 15 Pro Max" src="../assets/images/logo/ip3.jpg" />
-            <img alt="iPhone 15 Pro Max" src="../assets/images/logo/ip4.jpg" />
-          </div>
-        </div>
-        <div class="product-details">
-          <div class="capacity">
-            <h2>Dung lượng: 128GB</h2>
-            <div class="options">
-              <button>128GB</button>
-              <button>258GB</button>
-              <button>512GB</button>
-            </div>
-          </div>
-          <div class="color">
-            <h2>Color: Vàng sa mạc</h2>
-            <div class="options">
-              <div style="background-color: #fbbf24"></div>
-              <div style="background-color: #9ca3af"></div>
-              <div style="background-color: #000000"></div>
-              <div style="background-color: #4b5563"></div>
-            </div>
-          </div>
-          <div class="price">
-            <p class="current-price">20.500.000đ</p>
-            <p class="original-price">20.500.000đ</p>
-          </div>
-          <div class="description">
-            <h2>Giới thiệu máy:</h2>
-            <p>
-              iPhone 15 Pro Max có thiết kế khung viền Titanium, giúp máy nhẹ
-              hơn nhưng vẫn bền bỉ. Chip A17 Pro mang lại hiệu suất mạnh mẽ, đặc
-              biệt trong chơi game và xử lý tác vụ nặng. Camera 5X telephoto cho
-              khả năng chụp ảnh zoom xa rõ nét hơn. Ngoài ra, máy được trang bị
-              cổng USB-C.
-            </p>
-          </div>
-          <div class="buyandcart">
-            <button type="button" class="fas fa-shopping-bag">Dat hang</button>
-            <button type="button" class="fas fa-shopping-cart add-cart">
-              Them vao gio hang
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="more-product">
-        <h1>Sản phẩm tương tự :</h1>
-        <div class="grid">
-          <div class="card">
-            <img
-              alt="Oppo Reno13 5G cùng anh trai rhyder"
-              src="../assets/images/logo/oppo1.jpg"
-            />
-            <p class="price">9.500.000đ</p>
-            <p class="description">Oppo Reno13 5G</p>
-            <div class="buttons">
-              <button>Mua ngay</button>
-              <button>Learn more</button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              alt="Iphone 15 Pro max 128Gb"
-              src="../assets/images/logo/samsung1.webp"
-            />
-            <p class="price">20.500.000đ</p>
-            <p class="description">Iphone 15 Pro max</p>
-            <div class="buttons">
-              <button>Mua ngay</button>
-              <button>Learn more</button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              alt="Samsung A22 256Gb"
-              src="../assets/images/logo/iphone.jpg"
-            />
-            <p class="price">13.000.000đ</p>
-            <p class="description">Samsung A22 256Gb</p>
-            <div class="buttons">
-              <button>Mua ngay</button>
-              <button>Learn more</button>
-            </div>
-          </div>
-          <div class="card">
-            <img alt="Vivo V3 128Gb" src="../assets/images/logo/vivo.jpg" />
-            <p class="price">6.500.000đ</p>
-            <p class="description">Vivo V3 128Gb</p>
-            <div class="buttons">
-              <button>Mua ngay</button>
-              <button>Learn more</button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              alt="Xiaomi redmi 14 256Gb"
-              src="../assets/images/logo/xiaomi.jpg"
-            />
-            <p class="price">8.320.000đ</p>
-            <p class="description">Xiaomi remi 14 256Gb</p>
-            <div class="buttons">
-              <button>Mua ngay</button>
-              <button>Learn more</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
     <script src="../assets/js/cart.js"></script>
   </body>
-</html> -->
-<!-- fgeg
-document.addEventListener("DOMContentLoaded", () => {
-  const addCartBtn = document.querySelector(".add-cart");
-
-  addCartBtn.addEventListener("click", () => {
-    const productBox = document.querySelector(".product-container");
-    const productImg = productBox.querySelector(".img-phone img").src;
-    const productTitle = document.querySelector(".product-title").textContent;
-    const productPrice = document.querySelector(".current-price").textContent;
-
-    const newItem = {
-      img: productImg,
-      title: productTitle,
-      price: productPrice,
-      quantity: 1,
-    };
-
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    const existingIndex = cart.findIndex(
-      (item) => item.title === newItem.title
-    );
-    if (existingIndex !== -1) {
-      cart[existingIndex].quantity += 1;
-    } else {
-      cart.push(newItem);
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Đã thêm vào giỏ hàng!");
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const cartContent = document.querySelector(".cart-content");
-    const totalPriceEl = document.querySelector(".total-price");
-
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    if (cart.length === 0) {
-        cartContent.innerHTML = "<p>Giỏ hàng trống.</p>";
-        totalPriceEl.textContent = "0đ";
-        return;
-    }
-
-    renderCart();
-
-    function renderCart() {
-        cartContent.innerHTML = "";
-        let total = 0;
-
-        cart.forEach((item, index) => {
-            const cartBox = document.createElement("div");
-            cartBox.classList.add("cart-box");
-
-            cartBox.innerHTML = `
-                 <img src="${item.img}" class="cart-img" alt="${item.img}" />
-                  <div class="cart-detail">
-                    <h2 class="cart-product-title">${item.title}</h2>
-                    <span class="cart-price">${item.price}</span>
-                    <div class="cart-quantity">
-                      <button id="decrement">-</button>
-                      <span class="number">${item.quantity}</span>
-                      <button id="increment">+</button>
-                    </div>
-                  </div>
-                  <i class="ri-delete-bin-line cart-remove data-index="${index}" style="cursor: pointer;"></i>
-            `;
-           
-            cartContent.appendChild(cartBox);
-
-            const priceNumber = parseInt(item.price.replace(/\D/g, ""));
-            total += priceNumber * item.quantity;
-        });
-
-        totalPriceEl.textContent = total.toLocaleString() + "đ";
-
-     
-        const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-        document.querySelectorAll(".totalQuantity").forEach(el => el.textContent = totalQuantity);
-
-      
-        const removeButtons = document.querySelectorAll(".cart-remove");
-        removeButtons.forEach(button => {
-            button.addEventListener("click", e => {const index = e.target.getAttribute("data-index");
-            cart.splice(index, 1);
-            localStorage.setItem("cart", JSON.stringify(cart));
-            renderCart(); 
-        });
-    });
-}
-}); -->
+</html>

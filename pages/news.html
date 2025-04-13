@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      @font-face {
+        font-family: "OPPOSans-VN-Medium";
+        src: url("/assets/fonts/OPPOSans-VN-Medium.otf") format("opentype");
+      }
+
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: "OPPOSans-VN-Medium", sans-serif;
+      }
+      .navbar {
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-card {
+        width: 250px;
+        margin: 0 auto;
+        padding: 2px;
+        padding-top: 20px;
+        height: 500px;
+      }
+      .product-card img {
+        height: 250px;
+        object-fit: cover;
+      }
+      .product-card img:hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+      }
+      .product-card .card-body {
+        padding: 10px;
+      }
+      .product-card .button-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      footer {
+        background-color: #fff;
+        border-top: 1px solid #dee2e6;
+      }
+      .product-slider {
+        overflow: hidden;
+        position: relative;
+      }
+      .news-list {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+      .news-list .col {
+        flex: 0 0 20%;
+        max-width: 20%;
+      }
+      .truncate-text {
+        display: inline-block;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .news-card a:hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top mb-3">
+      <div class="container">
+        <div class="nav-logo">
+          <img
+            src="/assets/images/index_img/logo_3.jpg"
+            alt=""
+            style="height: 40px; margin-right: 30px"
+          />
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#products">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Liên hệ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/cart.html">Giỏ hàng</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" style="color: black" href="#"
+                >Tin tức</a
+              >
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="#login" class="btn btn-outline-dark me-2">Đăng nhập</a>
+            <a href="#register" class="btn btn-dark">Đăng ký</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 py-5">
+      <h1 class="border-bottom">Tin tức nổi bật</h1>
+      <div class="news-slider reveal reveal-bottom">
+        <div class="news-list" id="samsung-list">
+          <div class="col">
+            <div class="card product-card h-75">
+              <img
+                src="../assets/images/news/iphone-16-series-52.jpg"
+                alt="Samsung galaxy a55"
+              />
+              <div class="card-body">
+                <span class="truncate-text"
+                  >Tất tần tật giá bán iPhone 16 Series chính hãng VN/A (Cập
+                  nhật liên tục)</span
+                >
+
+                <div class="button-group">
+                  <a href="../pages/news-detail.html?id=iphone-16-series-52"
+                    >Xem chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-75">
+              <img
+                src="../assets/images/news/cover-samsung-galaxy-fold6-17.jpg"
+                alt="Samsung Galaxy S23"
+              />
+              <div class="card-body">
+                <span class="truncate-text">
+                  Trên tay Galaxy Z Fold6: Samsung Fold mỏng nhẹ nhất, màn phụ
+                  lớn hơn, cải tiến Galaxy AI, giá 43.9 triệu</span
+                >
+
+                <div class="button-group">
+                  <a href="../pages/news-detail.html?id=samsung-galaxy-fold6-17"
+                    >Xem chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-75">
+              <img
+                src="../assets/images/news/samsung-galaxy-s8-chong-nuoc.jpg"
+                alt="Samsung S24 Plus"
+              />
+              <div class="card-body">
+                <span class="truncate-text"
+                  >Mẹo nhỏ giúp bạn kiểm tra điện thoại Samsung còn khả năng
+                  kháng nước không</span
+                >
+
+                <div class="button-group">
+                  <a
+                    href="../pages/news-detail.html?id=samsung-galaxy-s8-chong-nuoc"
+                    >Xem chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-75">
+              <img
+                src="../assets/images/news/ampere-pro-v1-43-1-apk.jpg"
+                alt="Samsung S25"
+              />
+              <div class="card-body">
+                <span class="truncate-text"
+                  >Hướng dẫn đo tốc độ sạc trên Smartphone Android vô cùng dễ
+                  dàng</span
+                >
+
+                <div class="button-group">
+                  <a href="../pages/news-detail.html?id=ampere-pro"
+                    >Xem chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-75">
+              <img
+                src="../assets/images/news/MIUI-7-tips-double-tap-to-wake-screen-in-Mi4c-1.png"
+                alt="Samsung S25 Plus"
+              />
+              <div class="card-body">
+                <span class="truncate-text"
+                  >Cách tắt mở máy không dùng phím nguồn trên điện thoại
+                  Xiaomi</span
+                >
+
+                <div class="button-group">
+                  <a href="../pages/news-detail.html?id=MIUI-7-tips-double-tap"
+                    >Xem chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-75">
+              <img
+                src="../assets/images/news/Camera-Xaomi-14.jpg"
+                alt="Samsung ZFlip5"
+              />
+              <div class="card-body">
+                <span class="truncate-text"
+                  >Mời bạn xem bộ ảnh Đà Lạt - Phan Thiết: “Chuyến đi của thanh
+                  xuân” qua ống kính của Xiaomi 14</span
+                >
+
+                <div class="button-group">
+                  <a href="../pages/news-detail.html?id=Camera-Xaomi"
+                    >Xem chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="btn btn-dark position-absolute top-50 start-0 translate-middle-y"
+          onclick="slide('samsung-list', -1)"
+        >
+          &lt;
+        </button>
+        <button
+          class="btn btn-dark position-absolute top-50 end-0 translate-middle-y"
+          onclick="slide('samsung-list', 1)"
+        >
+          &gt;
+        </button>
+      </div>
+      <div class="mt-1">
+        <h1 class="border-bottom">Tin mới nhất</h1>
+        <div class="w-100">
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi1">
+                <img
+                  src="../assets/images/news/moi1.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi1"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                  So sánh Thunderbolt 5 và Thunderbolt 4: Liệu có nên nâng cấp
+                  trong năm 2025?
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                  Thunderbolt 5 có gì hơn Thunderbolt 4? Cùng so sánh nhanh để
+                  xem đâu là chuẩn kết nối đáng nâng cấp nhất cho nhu cầu làm
+                  việc, sáng tạo và giải trí hiện đại.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi2">
+                <img
+                  src="../assets/images/news/moi2.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi2"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                  Thunderbolt 5 mạnh cỡ nào? Truyền 8K, sạc 240W, một sợi cáp
+                  làm được tất cả!
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                  Thunderbolt 5 là chuẩn kết nối mới nhất do Intel phát triển,
+                  mang đến sự đột phá về tốc độ, khả năng hiển thị và sạc năng
+                  lượng cho thiết bị công nghệ.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi3">
+                <img
+                  src="../assets/images/news/moi3.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi3"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                  So sánh Redmi Note 14 5G và Samsung Galaxy A26: Tầm giá 7
+                  triệu đồng máy nào ngon hơn?
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                  Trong bài viết này chúng ta sẽ cùng so sánh Redmi Note 14 5G
+                  và Samsung A26 để xem đâu là lựa chọn phù hợp hơn với bạn.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi4">
+                <img
+                  src="../assets/images/news/moi4.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi4"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                  OPPO công bố sáng kiến ​​AI Agentic trên điện thoại, nâng cấp
+                  trải nghiệm AI cá nhân hóa
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                  OPPO công bố sáng kiến Agentic AI trên điện thoại, nâng cấp
+                  trải nghiệm cá nhân hóa tại Google Cloud Next 2025.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi5">
+                <img
+                  src="../assets/images/news/moi5.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi5"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                  vivo X200 Ultra được xác nhận dùng chip Snapdragon 8 Elite,
+                  màn hình 2K và pin 6000 mAh
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                  Mẫu flagship tiếp theo của vivo sẽ có thông số kỹ thuật cao
+                  cấp, hứa hẹn mang đến trải nghiệm sử dụng tuyệt vời cho người
+                  dùng.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi6">
+                <img
+                  src="../assets/images/news/moi6.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi6"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                  OnePlus 13T gây ấn tượng với tỷ lệ phân bổ trọng lượng hoàn
+                  hảo 50:50
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                  Điện thoại OnePlus 13T sắp ra mắt dự kiến sẽ có thiết kế cực
+                  kỳ cao cấp và tỷ lệ phân bổ trọng lượng hoàn hảo.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi7">
+                <img
+                  src="../assets/images/news/moi7.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi7"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                  Galaxy Z Fold7 được thử nghiệm trên Geekbench với One UI 8,
+                  chip Snapdragon 8 Elite for Galaxy
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                  Các điện thoại màn hình gập tiếp theo của Samsung dự kiến sẽ
+                  được cài sẵn giao diện người dùng One UI thế hệ tiếp theo khi
+                  ra khỏi hộp
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi8">
+                <img
+                  src="../assets/images/news/moi8.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi8"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                  Phục chế hình cũ bằng Nordy AI: Hồi sinh ký ức chỉ trong vài
+                  phút
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                  Phục chế hình cũ bằng Nordy AI đang trở thành giải pháp được
+                  nhiều người lựa chọn để tái hiện những bức ảnh cũ kỹ, mờ nhòe
+                  hoặc hư hỏng theo thời gian.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi9">
+                <img
+                  src="../assets/images/news/moi9.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi9"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                  nCademy: Nền tảng đào tạo an ninh mạng miễn phí cho người Việt
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                  nCademy là sáng kiến của Hiệp hội An ninh mạng quốc gia (NCA),
+                  ra mắt nhằm giải quyết bài toán thiếu hụt nhân sự an toàn
+                  thông tin và phổ cập kiến thức an ninh mạng tới cộng đồng.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2">
+              <a href="../pages/news-detail.html?id=moi10">
+                <img
+                  src="../assets/images/news/moi10.jpg"
+                  class="w-100"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <a
+                  href="../pages/news-detail.html?id=moi10"
+                  class="text-decoration-none text-danger fw-bold"
+                >
+                nubia Neo 3 có gì mới? Khi nào ra mắt và giá bao nhiêu?
+                </a>
+              </div>
+              <div class="row">
+                <p>
+                    Mẫu điện thoại nubia Neo 3 có gì mới, giá bán như thế nào và thiết kế ra sao, chúng ta hãy cùng tìm hiểu qua bài viết dưới đây nhé.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="py-4 text-center">
+        <p>© 2025 PhoneHub. All rights reserved.</p>
+      </footer>
+    <script>
+      const sliders = {
+        "samsung-list": { index: 0, max: 1 },
+      };
+      function slide(listId, direction) {
+        const slider = sliders[listId];
+        const list = document.getElementById(listId);
+        const itemWidth = list.querySelector(".col").offsetWidth;
+        slider.index += direction;
+        if (slider.index < 0) slider.index = 0;
+        if (slider.index > slider.max) slider.index = slider.max;
+        list.style.transform = `translateX(-${slider.index * itemWidth}px)`;
+      }
+    </script>
+  </body>
+</html>
