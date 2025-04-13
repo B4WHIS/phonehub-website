@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <title>PhoneHub</title>
+  <style>
+  
+
+    .logo {
+      width: 100px;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .phone-icon {
+      max-width: 100%;
+      height: auto;
+      animation: riseUp 0.8s ease-out forwards;
+    }
+
+    .j {
+      margin-bottom: 15rem;
+      margin-top: 4rem;
+    }
+
+    @keyframes riseUp {
+      0% {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+    }
+    .scroll-down-arrow {
+      text-align: center;
+      font-size: 3rem;
+      color: #000;
+      animation: bounce 2s infinite, arrowPulse 1.5s ease-out infinite;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    .scroll-down-arrow svg {
+      width: 48px;
+      height: 48px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+
+    .scroll-down-arrow.hide {
+      display: none;
+    }
+
+    .text-justify {
+      text-align: justify;
+    }
+    @font-face {
+        font-family: "OPPOSans-VN-Medium";
+        src: url("/assets/fonts/OPPOSans-VN-Medium.otf") format("opentype");
+      }
+
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: "OPPOSans-VN-Medium", sans-serif;
+      }
+      .navbar {
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .cart-table img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-right: 10px;
+      }
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+  </style>
+</head>
+<body>
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <div class="nav-logo">
+        <img
+          src="/assets/images/index_img/logo_3.jpg"
+          alt=""
+          style="height: 40px; margin-right: 30px"
+        />
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#products">Sản phẩm</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Liên hệ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cart">Giỏ hàng</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <a href="#login" class="btn btn-outline-dark me-2">Đăng nhập</a>
+          <a href="#register" class="btn btn-dark">Đăng ký</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="j">
+    <div class="container-fluid main-content mt-5 pt-lg-5 ">
+      <img src="../assets/images/login_re/z6409560198450_79aa8f64002ce1b005a5c7f999adcd0d.jpg" alt="" class="phone-icon">
+      <div class="scroll-down-arrow" id="scrollArrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 3.646a.5.5 0 0 1 .708 0L8 9.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+          <path fill-rule="evenodd" d="M1.646 7.646a.5.5 0 0 1 .708 0L8 13.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <!-- nd -->
+  <div class="container-fluid mt-5 pt-lg-5">
+    <div class="row">
+      <!-- Cột 1 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-center">Giới Thiệu Chung</h3>
+            <p class="card-text text-justify">
+              PhoneHub là trang web chuyên cung cấp các sản phẩm điện thoại di động đa dạng, từ những mẫu mới nhất đến các dòng điện thoại cao cấp, phù hợp với mọi nhu cầu và sở thích của bạn. Chúng tôi tự hào mang đến cho khách hàng những sản phẩm chính hãng với giá cả cạnh tranh, cùng với dịch vụ chăm sóc khách hàng tận tâm và nhanh chóng.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cột 2 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-center">Sản Phẩm & Dịch Vụ</h3>
+            <p class="card-text text-justify">
+              Tại PhoneHub, bạn không chỉ tìm thấy những chiếc điện thoại tuyệt vời mà còn được trải nghiệm những dịch vụ hỗ trợ đặc biệt, từ tư vấn lựa chọn sản phẩm đến giao hàng nhanh chóng. Chúng tôi cung cấp dịch vụ chăm sóc khách hàng 24/7 và luôn sẵn sàng hỗ trợ bạn trong suốt quá trình mua sắm.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cột 3 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-center">Khám Phá Ưu Đãi</h3>
+            <p class="card-text text-justify">
+              Hãy đến với PhoneHub để khám phá các ưu đãi hấp dẫn và tìm cho mình chiếc điện thoại lý tưởng nhất! Chúng tôi luôn cập nhật những chương trình khuyến mãi đặc biệt, giảm giá sốc và các sản phẩm mới với giá cực kỳ cạnh tranh. Đừng bỏ lỡ cơ hội sở hữu thiết bị yêu thích của bạn!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Thành viên thực hiện -->
+  <div class="container-fluid mt-5 pt-lg-5">
+    <div class="card-title">
+      <h1 class="text-center fw-bold">Thành Viên Thực Hiện</h1>
+    </div>
+    <div class="row-cols-5 d-flex justify-content-center mt-4">
+      <div class="card text-center g-3 ms-3" style="width: 12rem;">
+        <img src="../assets/images/about/Screenshot 2025-04-13 234336.png" class="card-img-top rounded-circle mx-auto mt-3 ml-4" alt="Ảnh thành viên" style="width: 120px; height: 120px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Nguyễn Hoàng Thái Bình</h5>
+          <p class="card-text text-muted">Trưởng nhóm</p>
+        </div>
+      </div>
+      <div class="card text-center g-3 ms-3" style="width: 12rem;">
+        <img src="../assets/images/about/z6502303435304_b4539070106885488aa21a14ff4f22b6.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Ảnh thành viên" style="width: 120px; height: 120px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Đỗ Hoàng Anh</h5>
+          <p class="card-text text-muted" style="margin-top: 32px;">Thành Viên</p>
+        </div>
+      </div>
+      <div class="card text-center g-3 ms-3" style="width: 12rem;">
+        <img src="../assets/images/about/image.png" class="card-img-top rounded-circle mx-auto mt-3" alt="Ảnh thành viên" style="width: 120px; height: 120px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Trần Hoài Châu</h5>
+          <p class="card-text text-muted" style="margin-top: 32px;">Thành Viên</p>
+        </div>
+      </div>
+      <div class="card text-center g-3 ms-3" style="width: 12rem;">
+        <img src="https://via.placeholder.com/150" class="card-img-top rounded-circle mx-auto mt-3" alt="" style="width: 120px; height: 120px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Nguyễn Hoàng Quyền</h5>
+          <p class="card-text text-muted">Thành Viên</p>
+        </div>
+      </div>
+      <div class="card text-center g-3 ms-3" style="width: 12rem;">
+        <img src="https://via.placeholder.com/150" class="card-img-top rounded-circle mx-auto mt-3" alt="" style="width: 120px; height: 120px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">NoBiTa</h5>
+          <p class="card-text text-muted" style="margin-top: 32px;">Thành Viên</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script để ẩn/hiện mũi tên khi scroll -->
+  <script>
+    const scrollArrow = document.getElementById("scrollArrow");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        scrollArrow.classList.add("hide");
+      } else {
+        scrollArrow.classList.remove("hide");
+      }
+    });
+  </script>
+  <!-- Footer -->
+<footer class="bg-dark text-white mt-5 pt-4 pb-3">
+  <div class="container">
+    <div class="row">
+      <!-- Liên hệ -->
+      <div class="col-md-4 mb-3">
+        <h5>Liên Hệ</h5>
+        <p><i class="bi bi-geo-alt-fill"></i>Trường đại học công nghiệp TP.HCM</p>
+        <p><i class="bi bi-envelope-fill"></i>dohoanganh099@gmail.com</p>
+        <p><i class="bi bi-telephone-fill"></i>0862387022</p>
+      </div>
+
+      <!-- Liên kết nhanh -->
+      <div class="col-md-4 mb-3">
+        <h5>Liên Kết Nhanh</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Trang chủ</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Sản phẩm</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Giới thiệu</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <!-- Mạng xã hội -->
+      <div class="col-md-4 mb-3">
+        <h5>Theo Dõi Chúng Tôi</h5>
+        <a href="#" class="text-white me-3 fs-4"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white me-3 fs-4"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-white me-3 fs-4"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+
+    <hr class="border-light">
+
+    <div class="text-center">
+      &copy; PhoneHub. Friend of every home.
+    </div>
+  </div>
+</footer>
+
+ 
+</body>
+</html>
