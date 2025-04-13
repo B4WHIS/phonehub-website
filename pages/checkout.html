@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh Toán - Phone Store</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <style>
+      .checkout-section {
+        padding: 100px 0;
+        background: #ffffff;
+        position: relative;
+      }
+      .checkout-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #dbeafe, #ffffff);
+        opacity: 0.5;
+        z-index: 0;
+      }
+      .container {
+        position: relative;
+        z-index: 1;
+      }
+      .customer-info,
+      .order-summary {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        border: 2px solid #bfdbfe;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .customer-info:hover,
+      .order-summary:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+      }
+      .form-control {
+        border-radius: 10px;
+        border: 1px solid #bfdbfe;
+        background: #f8fafc;
+        transition: all 0.3s ease;
+      }
+      .form-control:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+        background: #fff;
+      }
+      .form-control::placeholder {
+        color: #94a3b8;
+      }
+      .form-check-input {
+        border: 1px solid #bfdbfe;
+      }
+      .form-check-input:checked {
+        background-color: #3b82f6;
+        border-color: #3b82f6;
+      }
+      .form-check-label {
+        color: #1e293b;
+      }
+      .btn-primary {
+        background: linear-gradient(45deg, #3b82f6, #1e40af);
+        border: none;
+        border-radius: 12px;
+        padding: 14px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s ease, height 0.6s ease;
+      }
+      .btn-primary:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+      }
+      h2 {
+        color: #1e293b;
+        font-weight: 700;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+      h4 {
+        color: #3b82f6;
+        font-weight: 600;
+        border-bottom: 2px solid #dbeafe;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+      }
+      .order-item {
+        background: #f8fafc;
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #e0f2fe;
+        transition: background 0.3s ease;
+      }
+      .order-item:hover {
+        background: #eff6ff;
+      }
+      .order-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid #bfdbfe;
+      }
+      .order-item h6 {
+        color: #1e293b;
+        font-weight: 600;
+      }
+      .order-item p {
+        color: #475569;
+      }
+      .order-summary .d-flex {
+        padding: 10px 0;
+        color: #475569;
+      }
+      .order-summary .fw-bold {
+        font-size: 1.3rem;
+        color: #1e293b;
+      }
+      .progress-bar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        background: #eff6ff;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      .progress-step {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        color: #64748b;
+        font-size: 0.9rem;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      .progress-step.active {
+        background: #3b82f6;
+        color: #fff;
+        border-radius: 8px;
+      }
+      .progress-step::after {
+        content: "→";
+        position: absolute;
+        top: 50%;
+        right: -15px;
+        transform: translateY(-50%);
+        color: #bfdbfe;
+        font-size: 1.2rem;
+      }
+      .progress-step:last-child::after {
+        display: none;
+      }
+      footer {
+        background: #ffffff;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+        padding: 25px 0;
+        color: #64748b;
+      }
+      @media (max-width: 767px) {
+        .progress-bar {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .progress-step::after {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <div class="nav-logo">
+          <a href="../pages/index.html">
+            <img
+              src="../assets/images/index_img/logo_3.jpg"
+              alt=""
+              style="height: 40px; margin-right: 30px"
+          /></a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#products">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Liên hệ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/cart.html">Giỏ hàng</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <input
+                type="text"
+                id="searchInput"
+                class="form-control me-2"
+                placeholder="Tìm kiếm sản phẩm..."
+                style="width: 200px"
+              />
+              <button class="btn btn-outline-dark" onclick="searchProducts()">
+                Tìm
+              </button>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="../pages/login.html" class="btn btn-outline-dark me-2"
+              >Đăng nhập</a
+            >
+            <a href="../pages/register.html" class="btn btn-dark">Đăng ký</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="checkout-section">
+      <div class="container reveal reveal-top">
+        <h2 class="text-center mb-5">Thanh Toán</h2>
+
+        <div class="progress-bar reveal reveal-top">
+          <div class="progress-step">Giỏ hàng</div>
+          <div class="progress-step active">Thanh toán</div>
+          <div class="progress-step">Xác nhận</div>
+        </div>
+        <div class="row">
+          <div class="col-md-7 mb-4 reveal reveal-left">
+            <div class="customer-info">
+              <h4>Thông Tin Khách Hàng</h4>
+              <form>
+                <div class="mb-3">
+                  <label for="fullName" class="form-label">Họ và Tên *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    placeholder="Nhập họ và tên"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email *</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Nhập email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Số Điện Thoại *</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    placeholder="Nhập số điện thoại"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="address" class="form-label"
+                    >Địa Chỉ Giao Hàng *</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="address"
+                    rows="3"
+                    placeholder="Nhập địa chỉ giao hàng"
+                    required
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="notes" class="form-label"
+                    >Ghi Chú (Tùy Chọn)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="notes"
+                    rows="3"
+                    placeholder="Ghi chú cho đơn hàng"
+                  ></textarea>
+                </div>
+              </form>
+
+              <h4 class="mt-4">Phương Thức Thanh Toán</h4>
+              <div class="mb-3">
+                <div class="form-check mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="paymentMethod"
+                    id="cod"
+                    value="cod"
+                    checked
+                  />
+                  <label class="form-check-label" for="cod">
+                    Thanh toán khi nhận hàng (COD)
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="paymentMethod"
+                    id="bankTransfer"
+                    value="bankTransfer"
+                  />
+                  <label class="form-check-label" for="bankTransfer">
+                    Chuyển khoản ngân hàng
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="paymentMethod"
+                    id="creditCard"
+                    value="creditCard"
+                  />
+                  <label class="form-check-label" for="creditCard">
+                    Thẻ tín dụng/Thẻ ghi nợ
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5 mb-4 reveal reveal-right">
+            <div class="order-summary">
+              <h4>Tóm Tắt Đơn Hàng</h4>
+              <div class="order-item d-flex align-items-center">
+                <img
+                  src="/assets/images/product/apple/iphone-16-pro-max.jpg"
+                  alt="iPhone 16 Pro Max"
+                />
+                <div class="ms-3 flex-grow-1">
+                  <h6 class="mb-1">iPhone 16 Pro Max</h6>
+                  <p class="mb-0">Số lượng: 1</p>
+                </div>
+                <p class="mb-0">31.190.000₫</p>
+              </div>
+              <div class="order-item d-flex align-items-center">
+                <img
+                  src="/assets/images/product/samsung/galaxy-s24plus-tim.jpg"
+                  alt="Samsung S24 Plus"
+                />
+                <div class="ms-3 flex-grow-1">
+                  <h6 class="mb-1">Samsung S24 Plus</h6>
+                  <p class="mb-0">Số lượng: 1</p>
+                </div>
+                <p class="mb-0">11.990.000₫</p>
+              </div>
+              <hr style="border-color: #e0f2fe" />
+              <div class="d-flex justify-content-between">
+                <p class="mb-2">Tạm tính:</p>
+                <p class="mb-2">43.180.000₫</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p class="mb-2">Phí vận chuyển:</p>
+                <p class="mb-2">50.000₫</p>
+              </div>
+              <div class="d-flex justify-content-between fw-bold">
+                <p>Tổng cộng:</p>
+                <p>43.230.000₫</p>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 mt-4">
+                Xác Nhận Thanh Toán
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-4 text-center">
+      <p>© 2025 PhoneHub. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script></script>
+  </body>
+</html>
