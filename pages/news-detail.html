@@ -8,7 +8,7 @@
     <style>
         @font-face {
           font-family: "OPPOSans-VN-Medium";
-          src: url("/assets/fonts/OPPOSans-VN-Medium.otf") format("opentype");
+          src: url("../assets/fonts/OPPOSans-VN-Medium.otf") format("opentype");
         }
   
         body {
@@ -71,14 +71,14 @@
           transform: scale(1.05);
           transition: all 0.3s ease-in-out;
         }
-      </style>
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top mb-3">
         <div class="container">
           <div class="nav-logo">
             <img
-              src="/assets/images/index_img/logo_3.jpg"
+              src="../assets/images/index_img/logo_3.jpg"
               alt=""
               style="height: 40px; margin-right: 30px"
             />
@@ -94,7 +94,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#home">Trang chủ</a>
+                <a class="nav-link" href="../index.html">Trang chủ</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#products">Sản phẩm</a>
@@ -106,7 +106,7 @@
                 <a class="nav-link" href="../pages/cart.html">Giỏ hàng</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="color: black" href="#"
+                <a class="nav-link active" style="color: black" href="../pages/news.html"
                   >Tin tức</a
                 >
               </li>
@@ -117,12 +117,57 @@
             </div>
           </div>
         </div>
-      </nav>
-      <div class="container">
-        <div class="d-flex justify-content-center align-items-center mb-3 mt-5">
-            <img alt="Author's avatar" class="rounded-5 mr-3 w-75" src="../assets/images/news/iphone-16-series-52.jpg"/>
-           
-           </div>
+    </nav>
+    <div class="container mt-5 pt-5">
+        <div class="news-detail-container">
+          <div id="news-detail-container"></div>
+        </div>
+    </div>
+    <footer class="py-3 mt-5">
+      <div class="container text-center">
+          <p>© 2025 Website Tin Tức</p>
       </div>
+    </footer>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/news.js"></script>
+    <script>
+        // Lấy tham số 'id' từ URL
+        const getQueryParam = (param) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        };
+
+        // Render chi tiết tin tức dựa trên 'id'
+        const renderNewsDetail = () => {
+            const newsId = getQueryParam('id');
+            const newsItem = newsData.find(news => news.id === newsId); // Sửa newsList thành newsData
+
+            if (newsItem) {
+                const newsDetailContainer = document.getElementById('news-detail-container');
+                const newsContent = `
+               <div class="container">
+                      <div class="row">
+                          <div class="col-6 mb-3">
+                              <img src="${newsItem.coverImage}" class="w-75 text-center rounded-5" alt="${newsItem.title}" />
+                          </div>
+                          <div class="col-6">
+                              <h1>${newsItem.title}</h1>
+                              
+                          </div>
+                          <div class="content">
+                                  ${newsItem.content}
+                              </div>
+                      </div>
+               </div>
+                `;
+                newsDetailContainer.innerHTML = newsContent;
+            } else {
+                document.getElementById('news-detail-container').innerHTML = `<p>Tin tức không tồn tại.</p>`;
+            }
+        };
+
+        // Gọi hàm render khi trang được tải xong
+        document.addEventListener('DOMContentLoaded', renderNewsDetail);
+    </script>
 </body>
 </html>
