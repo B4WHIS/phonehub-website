@@ -3,111 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chi tiết sản phẩm - PhoneStore</title>
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-      @font-face {
-        font-family: "OPPOSans-VN-Medium";
-        src: url("/assets/fonts/OPPOSans-VN-Medium.otf") format("opentype");
-      }
-      body {
-        background-color: #f8f9fa;
-        color: #333;
-        font-family: "Kelson Sans Light", sans-serif;
-      }
+    <title>PhoneHub-ProductDetail</title>
 
-      .navbar {
-        background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-      .product-detail {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #product-image {
-        max-height: 400px;
-        width: auto;
-        margin: 0 auto;
-        display: block;
-      }
-      .right {
-        background-color: #b9b8b8;
-        border-radius: 20px;
-        padding: 50px;
-        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-      }
-      .dl {
-        font-weight: 700;
-        font-size: larger;
-      }
-
-      .list-dl li {
-        display: inline-block;
-        list-style-type: none;
-        margin: 10px;
-      }
-      .list-dl li button {
-        border-radius: 10px;
-      }
-      .list-ms li {
-        display: inline-block;
-        list-style-type: none;
-        margin: 10px;
-      }
-      .list-ms li button {
-        border-radius: 50%;
-        height: 30px;
-        width: 30px;
-        border: 2px solid transparent;
-        transition: all 0.3s;
-      }
-      .lead {
-        font-weight: 700;
-        font-size: 30px;
-      }
-      .all {
-        background-color: #ffffff;
-      }
-      .thumbnail {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        cursor: pointer;
-        border: 2px solid transparent;
-        transition: all 0.3s;
-        border-radius: 8px;
-      }
-      .thumbnail:hover,
-      .thumbnail.active {
-        border-color: #007bff;
-        transform: scale(1.05);
-      }
-      .color-option.active {
-        transform: scale(1.1);
-        box-shadow: 0 0 0 2px #007bff;
-      }
-      .storage-option.active {
-        background-color: #007bff !important;
-        color: white !important;
-      }
-      .color-name {
-        display: block;
-        margin-top: 5px;
-        font-size: 12px;
-        text-align: center;
-      }
-    </style>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/product-detail.css" />
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <div class="nav-logo">
-          <img
-            src="/assets/images/index_img/logo_3.jpg"
-            alt=""
-            style="height: 40px; margin-right: 30px"
-          />
+          <a href="../pages/index.html">
+            <img
+              src="../assets/images/index_img/logo_3.jpg"
+              alt=""
+              style="height: 40px; margin-right: 30px"
+          /></a>
         </div>
         <button
           class="navbar-toggler"
@@ -123,23 +35,37 @@
               <a class="nav-link" href="../pages/index.html">Trang chủ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../index.html">Sản phẩm</a>
+              <a class="nav-link" href="../pages/product.html">Sản phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../index.html#contact">Liên hệ</a>
+              <a class="nav-link" href="#contact">Liên hệ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../index.html#cart">Giỏ hàng</a>
+              <a class="nav-link" href="../pages/cart.html">Giỏ hàng</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <input
+                type="text"
+                id="searchInput"
+                class="form-control me-2"
+                placeholder="Tìm kiếm sản phẩm..."
+                style="width: 200px"
+              />
+              <button class="btn btn-outline-dark" onclick="searchProducts()">
+                Tìm
+              </button>
             </li>
           </ul>
           <div class="d-flex">
-            <a href="#login" class="btn btn-outline-dark me-2">Đăng nhập</a>
-            <a href="#register" class="btn btn-dark">Đăng ký</a>
+            <a href="../pages/login.html" class="btn btn-outline-dark me-2"
+              >Đăng nhập</a
+            >
+            <a href="../pages/register.html" class="btn btn-dark">Đăng ký</a>
           </div>
         </div>
       </div>
     </nav>
-
+    <!-- Product Detail -->
     <section class="py-5 mt-3">
       <h1 class="container border-bottom" id="product-name"></h1>
       <div class="container all p-4">
@@ -177,216 +103,203 @@
       </div>
     </section>
 
+    <!-- Liên hệ -->
+    <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Liên hệ</h2>
+        <p class="text-center">
+          Email: contact@phonehub.com | Hotline: 0123-456-789
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+      <p>© 2025 PhoneHub. All rights reserved.</p>
+    </footer>
+
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/product.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get("id");
-        let product = null;
-        let currentBrand = null;
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get("id");
+      let product = null;
+      let currentBrand = null;
 
-        // Find product in products data
-        for (const brand in products) {
-          product = products[brand].find((p) => p.id === productId);
-          if (product) {
-            currentBrand = brand;
-            break;
-          }
-        }
-
+      for (const brand in products) {
+        product = products[brand].find((p) => p.id === productId);
         if (product) {
-          document.getElementById("product-image").src = product.mainImage;
-          document.getElementById("product-name").textContent = product.name;
-          document.getElementById("product-description").textContent =
-            product.description;
+          currentBrand = brand;
+          break;
+        }
+      }
 
-          let currentVariant = product.variants[0];
-          let currentStorage = currentVariant.storageOptions[0];
+      if (product) {
+        document.getElementById("product-image").src = product.mainImage;
+        document.getElementById("product-name").textContent = product.name;
+        document.getElementById("product-description").textContent =
+          product.description;
 
-          // Update price
-          document.getElementById("product-price").textContent =
-            currentStorage.price;
+        let currentVariant = product.variants[0];
+        let currentStorage = currentVariant.storageOptions[0];
 
-          // Render color options
-          const colorOptions = document.getElementById("color-options");
-          product.variants.forEach((variant, index) => {
-            const li = document.createElement("li");
-            li.innerHTML = `
-              <button type="button" 
-                      id="color-option-${index}" 
-                      class="color-option btn ${index === 0 ? "active" : ""}" 
-                      style="background-color: ${variant.colorCode}"
-                      data-variant-index="${index}"
-                      title="${variant.color}">
-              </button>
-              <span class="color-name">${variant.color}</span>
-            `;
-            colorOptions.appendChild(li);
+        document.getElementById("product-price").textContent =
+          currentStorage.price;
+
+        const colorOptions = document.getElementById("color-options");
+        product.variants.forEach((variant, index) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <button type="button"
+                    id="color-option-${index}"
+                    class="color-option btn ${index === 0 ? "active" : ""}"
+                    style="background-color: ${variant.colorCode}"
+                    data-variant-index="${index}"
+                    title="${variant.color}">
+            </button>
+            <span class="color-name">${variant.color}</span>
+          `;
+          colorOptions.appendChild(li);
+        });
+
+        const storageOptions = document.getElementById("storage-options");
+        currentVariant.storageOptions.forEach((option, index) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <button type="button"
+                    id="storage-option-${index}"
+                    class="storage-option btn btn-outline-light ${
+                      index === 0 ? "active" : ""
+                    }"
+                    data-storage-index="${index}">
+              ${option.capacity}
+            </button>
+          `;
+          storageOptions.appendChild(li);
+        });
+
+        const thumbnailContainer = document.getElementById(
+          "thumbnail-container"
+        );
+        currentVariant.images.forEach((image, index) => {
+          const img = document.createElement("img");
+          img.src = image;
+          img.alt = `Thumbnail ${index + 1}`;
+          img.className = `thumbnail ${index === 0 ? "active" : ""}`;
+          img.dataset.imageIndex = index;
+          thumbnailContainer.appendChild(img);
+        });
+
+        document.querySelectorAll(".color-option").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const variantIndex = this.dataset.variantIndex;
+            currentVariant = product.variants[variantIndex];
+
+            document.getElementById("product-image").src =
+              currentVariant.images[0];
+
+            document
+              .querySelectorAll(".color-option")
+              .forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            storageOptions.innerHTML = "";
+            currentVariant.storageOptions.forEach((option, index) => {
+              const li = document.createElement("li");
+              li.innerHTML = `
+                <button type="button"
+                        class="storage-option btn btn-outline-light ${
+                          index === 0 ? "active" : ""
+                        }"
+                        data-storage-index="${index}">
+                  ${option.capacity}
+                </button>
+              `;
+              storageOptions.appendChild(li);
+            });
+
+            currentStorage = currentVariant.storageOptions[0];
+            document.getElementById("product-price").textContent =
+              currentStorage.price;
+
+            thumbnailContainer.innerHTML = "";
+            currentVariant.images.forEach((image, index) => {
+              const img = document.createElement("img");
+              img.src = image;
+              img.alt = `Thumbnail ${index + 1}`;
+              img.className = `thumbnail ${index === 0 ? "active" : ""}`;
+              img.dataset.imageIndex = index;
+              thumbnailContainer.appendChild(img);
+            });
           });
+        });
 
-          // Render storage options
-          const storageOptions = document.getElementById("storage-options");
-          currentVariant.storageOptions.forEach((option, index) => {
-            const li = document.createElement("li");
-            li.innerHTML = `
-              <button type="button" 
-                      id="storage-option-${index}" 
-                      class="storage-option btn btn-outline-light ${
-                        index === 0 ? "active" : ""
-                      }" 
-                      data-storage-index="${index}">
-                ${option.capacity}
-              </button>
-            `;
-            storageOptions.appendChild(li);
-          });
+        document
+          .getElementById("storage-options")
+          .addEventListener("click", function (e) {
+            if (e.target.classList.contains("storage-option")) {
+              const storageIndex = e.target.dataset.storageIndex;
+              currentStorage = currentVariant.storageOptions[storageIndex];
 
-          // Render thumbnails
-          const thumbnailContainer = document.getElementById(
-            "thumbnail-container"
-          );
-          currentVariant.images.forEach((image, index) => {
-            const img = document.createElement("img");
-            img.src = image;
-            img.alt = `Thumbnail ${index + 1}`;
-            img.className = `thumbnail ${index === 0 ? "active" : ""}`;
-            img.dataset.imageIndex = index;
-            thumbnailContainer.appendChild(img);
-          });
-
-          // Color option click event
-          document.querySelectorAll(".color-option").forEach((btn) => {
-            btn.addEventListener("click", function () {
-              const variantIndex = this.dataset.variantIndex;
-              currentVariant = product.variants[variantIndex];
-
-              // Update main image
-              document.getElementById("product-image").src =
-                currentVariant.images[0];
-
-              // Update active color
               document
-                .querySelectorAll(".color-option")
+                .querySelectorAll(".storage-option")
                 .forEach((b) => b.classList.remove("active"));
-              this.classList.add("active");
+              e.target.classList.add("active");
 
-              // Update storage options
-              storageOptions.innerHTML = "";
-              currentVariant.storageOptions.forEach((option, index) => {
-                const li = document.createElement("li");
-                li.innerHTML = `
-                  <button type="button" 
-                          class="storage-option btn btn-outline-light ${
-                            index === 0 ? "active" : ""
-                          }" 
-                          data-storage-index="${index}">
-                    ${option.capacity}
-                  </button>
-                `;
-                storageOptions.appendChild(li);
-              });
-
-              // Update price
-              currentStorage = currentVariant.storageOptions[0];
               document.getElementById("product-price").textContent =
                 currentStorage.price;
+            }
+          });
 
-              // Update thumbnails
-              thumbnailContainer.innerHTML = "";
-              currentVariant.images.forEach((image, index) => {
-                const img = document.createElement("img");
-                img.src = image;
-                img.alt = `Thumbnail ${index + 1}`;
-                img.className = `thumbnail ${index === 0 ? "active" : ""}`;
-                img.dataset.imageIndex = index;
-                thumbnailContainer.appendChild(img);
-              });
+        document
+          .getElementById("thumbnail-container")
+          .addEventListener("click", function (e) {
+            if (e.target.classList.contains("thumbnail")) {
+              const imageIndex = e.target.dataset.imageIndex;
+
+              document.getElementById("product-image").src =
+                currentVariant.images[imageIndex];
+
+              document
+                .querySelectorAll(".thumbnail")
+                .forEach((t) => t.classList.remove("active"));
+              e.target.classList.add("active");
+            }
+          });
+
+        document
+          .getElementById("add-to-cart")
+          .addEventListener("click", function () {
+            addToCart({
+              id: product.id,
+              name: product.name,
+              color: currentVariant.color,
+              storage: currentStorage.capacity,
+              price: currentStorage.price,
+              image: currentVariant.images[0],
             });
           });
 
-          // Storage option click event
-          document
-            .getElementById("storage-options")
-            .addEventListener("click", function (e) {
-              if (e.target.classList.contains("storage-option")) {
-                const storageIndex = e.target.dataset.storageIndex;
-                currentStorage = currentVariant.storageOptions[storageIndex];
-
-                // Update active storage
-                document
-                  .querySelectorAll(".storage-option")
-                  .forEach((b) => b.classList.remove("active"));
-                e.target.classList.add("active");
-
-                // Update price
-                document.getElementById("product-price").textContent =
-                  currentStorage.price;
-              }
-            });
-
-          // Thumbnail click event
-          document
-            .getElementById("thumbnail-container")
-            .addEventListener("click", function (e) {
-              if (e.target.classList.contains("thumbnail")) {
-                const imageIndex = e.target.dataset.imageIndex;
-
-                // Update main image
-                document.getElementById("product-image").src =
-                  currentVariant.images[imageIndex];
-
-                // Update active thumbnail
-                document
-                  .querySelectorAll(".thumbnail")
-                  .forEach((t) => t.classList.remove("active"));
-                e.target.classList.add("active");
-              }
-            });
-
-          // Add to cart button
-          document
-            .getElementById("add-to-cart")
-            .addEventListener("click", function () {
-              addToCart({
-                id: product.id,
-                name: product.name,
-                color: currentVariant.color,
-                storage: currentStorage.capacity,
-                price: currentStorage.price,
-                image: currentVariant.images[0],
-              });
-            });
-
-          // Buy now button
-          document
-            .getElementById("buy-now")
-            .addEventListener("click", function () {
-              // Redirect to checkout page with product details
-              window.location.href = `checkout.html?productId=${product.id}&color=${currentVariant.color}&storage=${currentStorage.capacity}`;
-            });
-        } else {
-          document.querySelector(".container").innerHTML =
-            "<h2>Sản phẩm không tồn tại</h2>";
-        }
-      });
+        document
+          .getElementById("buy-now")
+          .addEventListener("click", function () {
+            window.location.href = `checkout.html?productId=${product.id}&color=${currentVariant.color}&storage=${currentStorage.capacity}`;
+          });
+      }
+      // } else {
+      //   document.querySelector(".container").innerHTML =
+      //     "<h2>Sản phẩm không tồn tại</h2>";
+      // }
 
       function addToCart(item) {
-        // Get current cart from localStorage or initialize empty array
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        // Add new item to cart
         cart.push(item);
-
-        // Save back to localStorage
         localStorage.setItem("cart", JSON.stringify(cart));
 
-        // Show success message
         alert(
           `Đã thêm ${item.name} (${item.color}, ${item.storage}) vào giỏ hàng!`
         );
-
-        // You can also update cart counter here if you have one
       }
     </script>
   </body>
