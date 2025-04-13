@@ -4,102 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chi tiết sản phẩm - PhoneStore</title>
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-      @font-face {
-        font-family: "OPPOSans-VN-Medium";
-        src: url("/assets/fonts/OPPOSans-VN-Medium.otf") format("opentype");
-      }
-      body {
-        background-color: #f8f9fa;
-        color: #333;
-        font-family: "Kelson Sans Light", sans-serif;
-      }
-
-      .navbar {
-        background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-      .product-detail {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #product-image {
-        max-height: 400px;
-        width: auto;
-        margin: 0 auto;
-        display: block;
-      }
-      .right {
-        background-color: #b9b8b8;
-        border-radius: 20px;
-        padding: 50px;
-        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-      }
-      .dl {
-        font-weight: 700;
-        font-size: larger;
-      }
-
-      .list-dl li {
-        display: inline-block;
-        list-style-type: none;
-        margin: 10px;
-      }
-      .list-dl li button {
-        border-radius: 10px;
-      }
-      .list-ms li {
-        display: inline-block;
-        list-style-type: none;
-        margin: 10px;
-      }
-      .list-ms li button {
-        border-radius: 50%;
-        height: 30px;
-        width: 30px;
-        border: 2px solid transparent;
-        transition: all 0.3s;
-      }
-      .lead {
-        font-weight: 700;
-        font-size: 30px;
-      }
-      .all {
-        background-color: #ffffff;
-      }
-      .thumbnail {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        cursor: pointer;
-        border: 2px solid transparent;
-        transition: all 0.3s;
-        border-radius: 8px;
-      }
-      .thumbnail:hover,
-      .thumbnail.active {
-        border-color: #007bff;
-        transform: scale(1.05);
-      }
-      .color-option.active {
-        transform: scale(1.1);
-        box-shadow: 0 0 0 2px #007bff;
-      }
-      .storage-option.active {
-        background-color: #007bff !important;
-        color: white !important;
-      }
-      .color-name {
-        display: block;
-        margin-top: 5px;
-        font-size: 12px;
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
+    <!-- Nav  -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <div class="nav-logo">
@@ -140,6 +50,7 @@
       </div>
     </nav>
 
+    <!-- Chi tiết sản phẩm -->
     <section class="py-5 mt-3">
       <h1 class="container border-bottom" id="product-name"></h1>
       <div class="container all p-4">
@@ -177,8 +88,8 @@
       </div>
     </section>
 
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/product.js"></script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
@@ -186,7 +97,6 @@
         let product = null;
         let currentBrand = null;
 
-        // Find product in products data
         for (const brand in products) {
           product = products[brand].find((p) => p.id === productId);
           if (product) {
@@ -204,11 +114,9 @@
           let currentVariant = product.variants[0];
           let currentStorage = currentVariant.storageOptions[0];
 
-          // Update price
           document.getElementById("product-price").textContent =
             currentStorage.price;
 
-          // Render color options
           const colorOptions = document.getElementById("color-options");
           product.variants.forEach((variant, index) => {
             const li = document.createElement("li");
@@ -225,7 +133,6 @@
             colorOptions.appendChild(li);
           });
 
-          // Render storage options
           const storageOptions = document.getElementById("storage-options");
           currentVariant.storageOptions.forEach((option, index) => {
             const li = document.createElement("li");
@@ -242,7 +149,6 @@
             storageOptions.appendChild(li);
           });
 
-          // Render thumbnails
           const thumbnailContainer = document.getElementById(
             "thumbnail-container"
           );
@@ -255,23 +161,19 @@
             thumbnailContainer.appendChild(img);
           });
 
-          // Color option click event
           document.querySelectorAll(".color-option").forEach((btn) => {
             btn.addEventListener("click", function () {
               const variantIndex = this.dataset.variantIndex;
               currentVariant = product.variants[variantIndex];
 
-              // Update main image
               document.getElementById("product-image").src =
                 currentVariant.images[0];
 
-              // Update active color
               document
                 .querySelectorAll(".color-option")
                 .forEach((b) => b.classList.remove("active"));
               this.classList.add("active");
 
-              // Update storage options
               storageOptions.innerHTML = "";
               currentVariant.storageOptions.forEach((option, index) => {
                 const li = document.createElement("li");
@@ -287,12 +189,10 @@
                 storageOptions.appendChild(li);
               });
 
-              // Update price
               currentStorage = currentVariant.storageOptions[0];
               document.getElementById("product-price").textContent =
                 currentStorage.price;
 
-              // Update thumbnails
               thumbnailContainer.innerHTML = "";
               currentVariant.images.forEach((image, index) => {
                 const img = document.createElement("img");
@@ -305,7 +205,6 @@
             });
           });
 
-          // Storage option click event
           document
             .getElementById("storage-options")
             .addEventListener("click", function (e) {
@@ -313,7 +212,6 @@
                 const storageIndex = e.target.dataset.storageIndex;
                 currentStorage = currentVariant.storageOptions[storageIndex];
 
-                // Update active storage
                 document
                   .querySelectorAll(".storage-option")
                   .forEach((b) => b.classList.remove("active"));
@@ -325,18 +223,15 @@
               }
             });
 
-          // Thumbnail click event
           document
             .getElementById("thumbnail-container")
             .addEventListener("click", function (e) {
               if (e.target.classList.contains("thumbnail")) {
                 const imageIndex = e.target.dataset.imageIndex;
 
-                // Update main image
                 document.getElementById("product-image").src =
                   currentVariant.images[imageIndex];
 
-                // Update active thumbnail
                 document
                   .querySelectorAll(".thumbnail")
                   .forEach((t) => t.classList.remove("active"));
@@ -344,7 +239,6 @@
               }
             });
 
-          // Add to cart button
           document
             .getElementById("add-to-cart")
             .addEventListener("click", function () {
@@ -358,11 +252,9 @@
               });
             });
 
-          // Buy now button
           document
             .getElementById("buy-now")
             .addEventListener("click", function () {
-              // Redirect to checkout page with product details
               window.location.href = `checkout.html?productId=${product.id}&color=${currentVariant.color}&storage=${currentStorage.capacity}`;
             });
         } else {
@@ -372,21 +264,15 @@
       });
 
       function addToCart(item) {
-        // Get current cart from localStorage or initialize empty array
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        // Add new item to cart
         cart.push(item);
 
-        // Save back to localStorage
         localStorage.setItem("cart", JSON.stringify(cart));
 
-        // Show success message
         alert(
           `Đã thêm ${item.name} (${item.color}, ${item.storage}) vào giỏ hàng!`
         );
-
-        // You can also update cart counter here if you have one
       }
     </script>
   </body>

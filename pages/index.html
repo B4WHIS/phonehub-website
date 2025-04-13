@@ -3,82 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phone Store</title>
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-      @font-face {
-        font-family: "OPPOSans-VN-Medium";
-        src: url("/assets/fonts/OPPOSans-VN-Medium.otf") format("opentype");
-      }
-
-      body {
-        background-color: #f8f9fa;
-        color: #333;
-        font-family: "OPPOSans-VN-Medium", sans-serif;
-      }
-      .navbar {
-        background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      #home {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        background-color: #fff;
-      }
-      .carousel-inner img {
-        max-height: 600px;
-        object-fit: contain;
-      }
-
-      .product-card {
-        width: 250px;
-        margin: 0 auto;
-        padding: 2px;
-        padding-top: 20px;
-        height: 500px;
-      }
-      .product-card img {
-        height: 250px;
-        object-fit: cover;
-      }
-      .product-card img:hover {
-        transform: scale(1.05);
-        transition: all 0.3s ease-in-out;
-      }
-      .product-card .card-body {
-        padding: 10px;
-      }
-      .product-card .button-group {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      footer {
-        background-color: #fff;
-        border-top: 1px solid #dee2e6;
-      }
-      .product-slider {
-        overflow: hidden;
-        position: relative;
-      }
-      .product-list {
-        display: flex;
-        transition: transform 0.5s ease;
-      }
-      .product-list .col {
-        flex: 0 0 20%;
-        max-width: 20%;
-      }
-      .brand-section h3 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #333;
-        border-bottom: 2px solid #007bff;
-        padding-bottom: 5px;
-      }
-    </style>
+    <title>PhoneHub</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -198,102 +126,64 @@
       <p>© 2025 PhoneHub. All rights reserved.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Import file product.js chứa dữ liệu sản phẩm -->
     <script src="/assets/js/product.js"></script>
 
     <script>
-      // Định nghĩa object sliders (hiện không dùng, có thể xóa nếu không cần)
-      const sliders = {
-        "iphone-list": { index: 0, max: 3 },
-        "samsung-list": { index: 0, max: 3 },
-        "oppo-list": { index: 0, max: 3 },
-        "xiaomi-list": { index: 0, max: 3 },
-        "vivo-list": { index: 0, max: 3 },
-        "realme-list": { index: 0, max: 3 },
-      };
-
-      // Định nghĩa hàm displayProducts để hiển thị danh sách sản phẩm
       function displayProducts() {
-        // Tìm phần tử có ID "product-brands"
         const productBrands = document.getElementById("product-brands");
-        // Xóa nội dung cũ trong productBrands
-        productBrands.innerHTML = ""; // Xóa nội dung cũ
+        productBrands.innerHTML = "";
 
-        // Duyệt qua từng hãng trong object products
         for (const brand in products) {
-          // Tạo một div mới cho section của hãng
           const brandSection = document.createElement("div");
-          // Gán class "brand-section mb-5 reveal" (thêm class reveal để áp dụng hiệu ứng)
           brandSection.className = "brand-section mb-5 reveal";
-          // Gán nội dung HTML cho brandSection (tiêu đề hãng và div chứa danh sách sản phẩm)
           brandSection.innerHTML = `
-        <h3 class="mb-3">${brand.charAt(0).toUpperCase() + brand.slice(1)}</h3>
-        <div class="row" id="product-list-${brand}">
-        </div>
+      <h3 class="mb-3">${brand.charAt(0).toUpperCase() + brand.slice(1)}</h3>
+      <div class="row" id="product-list-${brand}">
+      </div>
       `;
-          // Thêm brandSection vào productBrands
           productBrands.appendChild(brandSection);
 
-          // Tìm div chứa danh sách sản phẩm của hãng
           const productList = document.getElementById(`product-list-${brand}`);
-          // Duyệt qua từng sản phẩm trong danh sách sản phẩm của hãng
           products[brand].forEach((product) => {
-            // Tạo một div mới cho sản phẩm
             const col = document.createElement("div");
-            // Gán class "col-md-4 col-lg-3 mb-4" để định dạng theo lưới Bootstrap
             col.className = "col-md-4 col-lg-3 mb-4";
-            // Gán nội dung HTML cho col (hiển thị sản phẩm: ảnh, tên, giá, nút)
             col.innerHTML = `
-          <div class="card product-card">
-            <img src="${product.mainImage}" alt="${product.name}" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">${product.name}</h5>
-              <p class="card-text">${product.basePrice}</p>
-              <div class="button-group">
-                <button class="btn btn-outline-dark" onclick="addToCart('${product.id}')">Thêm</button>
-                <a href="/pages/product-detail.html?id=${product.id}" class="btn btn-dark">Xem chi tiết</a>
-              </div>
+        <div class="card product-card">
+          <img src="${product.mainImage}" alt="${product.name}" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text">${product.basePrice}</p>
+            <div class="button-group">
+              <button class="btn btn-outline-dark" onclick="addToCart('${product.id}')">Thêm</button>
+              <a href="/pages/product-detail.html?id=${product.id}" class="btn btn-dark">Xem chi tiết</a>
             </div>
           </div>
-        `;
-            // Thêm col (sản phẩm) vào productList
+        </div>
+      `;
             productList.appendChild(col);
           });
         }
 
-        // Gọi lại hàm reveal() để áp dụng hiệu ứng cho các section sản phẩm vừa tạo
         reveal();
       }
 
-      // Định nghĩa hàm addToCart để thêm sản phẩm vào giỏ hàng
       function addToCart(productId) {
-        // Khởi tạo biến product để lưu thông tin sản phẩm
         let product = null;
-        // Duyệt qua từng hãng để tìm sản phẩm có ID khớp với productId
         for (const brand in products) {
-          // Tìm sản phẩm trong danh sách sản phẩm của hãng
           product = products[brand].find((p) => p.id === productId);
-          // Nếu tìm thấy, thoát vòng lặp
           if (product) break;
         }
 
-        // Kiểm tra nếu không tìm thấy sản phẩm
         if (!product) {
-          // Hiển thị thông báo lỗi và thoát hàm
           alert("Sản phẩm không tồn tại!");
           return;
         }
 
-        // Lấy giỏ hàng từ localStorage, nếu không có thì tạo mảng rỗng
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
         const existingItem = cart.find((item) => item.id === productId);
-        // Nếu sản phẩm đã có, tăng số lượng lên 1
         if (existingItem) {
           existingItem.quantity += 1;
         } else {
-          // Nếu sản phẩm chưa có, thêm sản phẩm mới vào giỏ
           cart.push({
             id: product.id,
             name: product.name,
@@ -303,13 +193,10 @@
           });
         }
 
-        // Lưu giỏ hàng đã cập nhật vào localStorage
         localStorage.setItem("cart", JSON.stringify(cart));
-        // Hiển thị thông báo xác nhận
         alert(`Đã thêm ${product.name} vào giỏ hàng!`);
       }
 
-      // Gọi hàm displayProducts để hiển thị danh sách sản phẩm khi trang tải
       displayProducts();
     </script>
   </body>

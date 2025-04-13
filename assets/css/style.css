@@ -1,12 +1,151 @@
-/* CSS CHUNG CHO TOÀN BỘ WEBWEB */
 @font-face {
-  font-family: "SVN-Freude";
-  /* src: url("../fonts/SVN-Freude.otf") format("woff");
-  src: url("../fonts/SVN-Gumley.otf") format("woff"); */
-  src: url("../fonts/MJ-Modern-Regular.ttf") format("woff");
-  font-weight: normal;
+  font-family: "OPPOSans-VN-Medium";
+  src: url("/assets/fonts/OPPOSans-VN-Medium.otf") format("opentype");
 }
 
-/* body {
-  font-family: "MJ-Modern-Regular", "SVN-Road Rage", "SVN-Gumley", "SVN-Freude";
-} */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  font-family: "OPPOSans-VN-Medium", sans-serif;
+}
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.carousel-inner img {
+  max-height: 600px;
+  object-fit: contain;
+}
+
+.product-card {
+  width: 250px;
+  margin: 0 auto;
+  padding: 2px;
+  padding-top: 20px;
+  height: 500px;
+}
+.product-card img {
+  height: 250px;
+  object-fit: cover;
+}
+.product-card img:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+.product-card .card-body {
+  padding: 10px;
+}
+.product-card .button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer {
+  background-color: #fff;
+  border-top: 1px solid #dee2e6;
+}
+.product-slider {
+  overflow: hidden;
+  position: relative;
+}
+.product-list {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.product-list .col {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+.brand-section h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+}
+
+/* PRODUCT DETAIL  */
+.product-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#product-image {
+  max-height: 400px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+.right {
+  background-color: #b9b8b8;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.dl {
+  font-weight: 700;
+  font-size: larger;
+}
+
+.list-dl li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 10px;
+}
+.list-dl li button {
+  border-radius: 10px;
+}
+.list-ms li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 10px;
+}
+.list-ms li button {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+.lead {
+  font-weight: 700;
+  font-size: 30px;
+}
+.all {
+  background-color: #ffffff;
+}
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+  border-radius: 8px;
+}
+.thumbnail:hover,
+.thumbnail.active {
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+.color-option.active {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2px #007bff;
+}
+.storage-option.active {
+  background-color: #007bff !important;
+  color: white !important;
+}
+.color-name {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: center;
+}
