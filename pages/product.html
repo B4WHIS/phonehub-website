@@ -68,10 +68,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#home">Trang chủ</a>
+              <a class="nav-link" href="../pages/index.html">Trang chủ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#products">Sản phẩm</a>
+              <a class="nav-link" href="../pages/product.html">Sản phẩm</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Liên hệ</a>
@@ -129,13 +129,12 @@
             const col = document.createElement("div");
             col.className = "col-md-4 col-lg-3 mb-4";
             col.innerHTML = `
-              <div class="card product-card">
+              <div class="card product-card h-100">
                 <img src="${product.mainImage}" alt="${product.name}" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">${product.name}</h5>
                   <p class="card-text">${product.basePrice}</p>
-                  <div class="button-group">
-                    <button class="btn btn-outline-dark" onclick="addToCart('${product.id}')">Thêm</button>
+                  <div class="button-group ">
                     <a href="/pages/product-detail.html?id=${product.id}" class="btn btn-dark">Xem chi tiết</a>
                   </div>
                 </div>
@@ -145,37 +144,6 @@
           });
         }
       }
-
-      function addToCart(productId) {
-        let product = null;
-        for (const brand in products) {
-          product = products[brand].find((p) => p.id === productId);
-          if (product) break;
-        }
-
-        if (!product) {
-          alert("Sản phẩm không tồn tại!");
-          return;
-        }
-
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const existingItem = cart.find((item) => item.id === productId);
-        if (existingItem) {
-          existingItem.quantity += 1;
-        } else {
-          cart.push({
-            id: product.id,
-            name: product.name,
-            price: product.basePrice,
-            image: product.mainImage,
-            quantity: 1,
-          });
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-        alert(`Đã thêm ${product.name} vào giỏ hàng!`);
-      }
-
       displayProducts();
     </script>
   </body>
