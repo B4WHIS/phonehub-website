@@ -861,7 +861,7 @@ const products = {
   samsung: [
     {
       id: "galaxy-a55-5g",
-      name: "Samsung Galaxy A55 5G",
+      name: "Samsung Galaxy A55",
       basePrice: "9.990.000₫",
       mainImage: "../assets/images/product/samsung/galaxy-a55-5g-den.jpg",
       variants: [
@@ -903,7 +903,7 @@ const products = {
         },
       ],
       description:
-        "Samsung Galaxy A55 5G sở hữu màn hình Super AMOLED 6.6 inch với tần số quét 120Hz, vi xử lý Exynos 1480 (4nm), RAM 8GB và bộ nhớ trong 128GB hoặc 256GB. Máy trang bị cụm 3 camera sau với cảm biến chính 50MP, camera trước 32MP, pin 5000mAh hỗ trợ sạc nhanh 25W, cùng khả năng kháng nước và bụi chuẩn IP67.",
+        "Samsung Galaxy A55 sở hữu màn hình Super AMOLED 6.6 inch với tần số quét 120Hz, vi xử lý Exynos 1480 (4nm), RAM 8GB và bộ nhớ trong 128GB hoặc 256GB. Máy trang bị cụm 3 camera sau với cảm biến chính 50MP, camera trước 32MP, pin 5000mAh hỗ trợ sạc nhanh 25W, cùng khả năng kháng nước và bụi chuẩn IP67.",
     },
     {
       id: "galaxy-s23",
@@ -953,7 +953,7 @@ const products = {
     },
     {
       id: "galaxy-s24plus",
-      name: "Samsung Galaxy S24 Plus",
+      name: "Samsung Galaxy S24",
       basePrice: "25.990.000₫",
       mainImage: "../assets/images/product/samsung/galaxy-s24plus-den.webp",
       variants: [
@@ -995,7 +995,7 @@ const products = {
         },
       ],
       description:
-        "Samsung Galaxy S24 Plus sở hữu màn hình Dynamic AMOLED 2X 6.7 inch với độ phân giải QHD+, vi xử lý Exynos 2400, RAM 12GB và bộ nhớ trong 256GB hoặc 512GB. Máy trang bị cụm 3 camera sau với cảm biến chính 50MP, camera trước 12MP, pin 4900mAh hỗ trợ sạc nhanh 45W, cùng các tính năng AI tiên tiến.",
+        "Samsung Galaxy S24 sở hữu màn hình Dynamic AMOLED 2X 6.7 inch với độ phân giải QHD+, vi xử lý Exynos 2400, RAM 12GB và bộ nhớ trong 256GB hoặc 512GB. Máy trang bị cụm 3 camera sau với cảm biến chính 50MP, camera trước 12MP, pin 4900mAh hỗ trợ sạc nhanh 45W, cùng các tính năng AI tiên tiến.",
     },
     {
       id: "galaxy-s25",

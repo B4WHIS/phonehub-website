@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-     
       .checkout-section {
         padding: 100px 0;
         background: #ffffff;
@@ -455,10 +454,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      
-
       $(document).ready(function () {
-       
         function displayCart() {
           const cart = JSON.parse(localStorage.getItem("cart")) || [];
           const orderItems = $("#order-items");
@@ -476,7 +472,6 @@
           }
 
           cart.forEach((item) => {
-            
             const price = parseFloat(
               item.price.replace("₫", "").replace(/\./g, "")
             );
@@ -495,30 +490,25 @@
             `);
           });
 
-          
-          const shipping = 50000; 
+          const shipping = 50000;
           const total = subtotal + shipping;
 
           $("#subtotal").text(`${subtotal.toLocaleString("vi-VN")}₫`);
           $("#total").text(`${total.toLocaleString("vi-VN")}₫`);
         }
 
-      
         displayCart();
 
-     
         function isValidEmail(email) {
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           return emailRegex.test(email);
         }
 
-      
         function isValidPhone(phone) {
           const phoneRegex = /^0\d{9}$/;
           return phoneRegex.test(phone);
         }
 
-        
         $("#confirmPayment").click(function (e) {
           e.preventDefault();
 
@@ -567,10 +557,11 @@
             isValid = false;
           }
 
-         
           const cart = JSON.parse(localStorage.getItem("cart")) || [];
           if (cart.length === 0) {
-            alert("Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm trước khi thanh toán.");
+            alert(
+              "Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm trước khi thanh toán."
+            );
             isValid = false;
           }
 
@@ -605,14 +596,12 @@
               1000
             );
 
-            
             localStorage.removeItem("cart");
-            displayCart(); 
+            displayCart();
             $("#checkoutForm")[0].reset();
           }
         });
 
-       
         $("#checkoutForm input, #checkoutForm textarea").on(
           "input",
           function () {
