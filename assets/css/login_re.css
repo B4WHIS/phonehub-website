@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: url(../images/login_re/banner_login.jpg) no-repeat;
+  background: url(../images/login_re/hot-air-balloon-4993835.jpg) no-repeat;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
@@ -14,8 +14,8 @@ body {
   color: white;
   background: transparent;
   border: 2px solid rgb(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 10px rgb(201, 61, 240);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgb(22, 124, 68);
 }
 .box h3 {
   font-size: 3-px;

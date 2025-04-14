@@ -1,84 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Login and register</title>
-    <link rel="stylesheet"href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"rel="stylesheet"">
-    <link rel="stylesheet" href="style.css">
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/register.css">
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <div class="form-box login">
-            <form action="#">
-                <h1>Login</h1>
-                <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                    <i class='bx bxs-user'></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt' ></i>
-                </div>
-                <div class="forgot-link">
-                    <input type="radio" name="remember" id="remember" checked>
-                    <a href="#">Remember Password?</a>
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <p>or login with platforms</p>
-                <div class="social-icons">
-                    <a href="https://www.google.com.vn/?hl=vi"><i class='bx bxl-google' ></i></a>
-                    <a href="https://www.facebook.com/?locale=vi_VN"><i class='bx bxl-facebook' ></i></a>
-                    <a href="https://github.com/"><i class='bx bxl-github' ></i></a>
-                    <a href="https://www.instagram.com/"><i class='bx bxl-instagram' ></i></a>
-                </div>
-            </form>
-        </div>
+<html>
+  <head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/register.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.css" />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="container py-5 h-100 vh-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="box" style="border-radius: 1rem">
+            <div class="card-body p-5 text-center">
+              <h3 class="mb-5" style="font-size: 35px">Register</h3>
 
-        <div class="form-box register">
-            <form action="#">
-                <h1>Registration</h1>
-                <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                    <i class='bx bxs-user'></i>
+              <!-- FORM BẮT ĐẦU -->
+              <form id="registerForm">
+                <!-- Username -->
+                <div
+                  class="input-group p-2 rounded-pill my-3"
+                  style="max-width: 350px"
+                >
+                  <input
+                    type="text"
+                    id="username"
+                    class="form-control border-0 shadow-none bg-transparent"
+                    placeholder="Username"
+                    autocomplete="off"
+                    style="color: white"
+                    required
+                  />
+                  <span class="input-group-text bg-transparent border-0">
+                    <i class="bx bxs-user" style="color: white"></i>
+                  </span>
                 </div>
-                <div class="input-box">
-                    <input type="email" placeholder="Email" required>
-                    <i class='bx bxs-envelope' ></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt' ></i>
-                </div>
-                <button type="submit" class="btn" >Register</button>
-                <p>or register with platforms</p>
-                <div class="social-icons">
-                    <a href="https://www.google.com.vn/?hl=vi"><i class='bx bxl-google' ></i></a>
-                    <a href="https://www.facebook.com/?locale=vi_VN"><i class='bx bxl-facebook' ></i></a>
-                    <a href="https://github.com/"><i class='bx bxl-github' ></i></a>
-                    <a href="https://www.instagram.com/"><i class='bx bxl-instagram' ></i></a>
-                </div>
-            </form>
-        </div>
 
-        <div class="toggle-box">
-            <div class="toggle-panel toggle-left">
-                <h1>Hello, Welcome!</h1>
-                <p>Don't have an account?</p>
-                <button class="btn register-btn">Register</button>
+                <!-- Email -->
+                <div
+                  class="input-group p-2 rounded-pill my-3"
+                  style="max-width: 350px"
+                >
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control border-0 shadow-none bg-transparent"
+                    placeholder="Email"
+                    style="color: white"
+                    autocomplete="off"
+                    required
+                  />
+                  <span class="input-group-text bg-transparent border-0">
+                    <i class="bx bxs-envelope" style="color: white"></i>
+                  </span>
+                </div>
+
+                <!-- Password -->
+                <div
+                  class="input-group p-2 rounded-pill my-3"
+                  style="max-width: 350px"
+                >
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-control border-0 shadow-none bg-transparent"
+                    placeholder="Password"
+                    autocomplete="off"
+                    style="color: white"
+                    required
+                  />
+                  <span class="input-group-text bg-transparent border-0">
+                    <i class="bx bxs-lock-alt" style="color: white"></i>
+                  </span>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-start my-3">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="agree"
+                  />
+                  <label class="form-check-label" for="agree"
+                    >Agree to terms</label
+                  >
+                </div>
+
+                <!-- Submit button -->
+                <button
+                  class="btn btn-light btn-block rounded-pill mb-4"
+                  style="height: 50px; font-weight: bold"
+                  type="submit"
+                >
+                  Register
+                </button>
+              </form>
+              <!-- FORM KẾT THÚC -->
+
+              <div>
+                <a href="#" class="text-light text-decoration-none"
+                  >Already have an account?</a
+                >
+                <a
+                  href="./login.html"
+                  class="text-light text-decoration-none"
+                  style="font-weight: bold"
+                  >Login</a
+                >
+              </div>
             </div>
-
-            <div class="toggle-panel toggle-right">
-                <h1>Welcome Back!</h1>
-                <p>Already have an account?</p>
-                <button class="btn login-btn">Login</button>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
 
+    <!-- JavaScript -->
     <script src="../assets/js/register.js"></script>
-</body>
+  </body>
 </html>

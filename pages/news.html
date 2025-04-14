@@ -3,24 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>News</title>
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <title>News -PhoneHub</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <style>
-      @font-face {
-        font-family: "OPPOSans-VN-Medium";
-        src: url("/assets/fonts/OPPOSans-VN-Medium.otf") format("opentype");
-      }
-
-      body {
-        background-color: #f8f9fa;
-        color: #333;
-        font-family: "OPPOSans-VN-Medium", sans-serif;
-      }
-      .navbar {
-        background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
       .product-card {
         width: 250px;
         margin: 0 auto;
@@ -131,7 +118,7 @@
         </div>
       </div>
     </nav>
-
+    <!-- Main Content -->
     <div class="container mt-5 py-5">
       <h1 class="border-bottom">Tin tức nổi bật</h1>
       <div class="news-slider reveal reveal-bottom">
@@ -563,6 +550,8 @@
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
     <footer class="py-4 text-center">
       <p>© 2025 PhoneHub. All rights reserved.</p>
     </footer>
@@ -580,5 +569,6 @@
         list.style.transform = `translateX(-${slider.index * itemWidth}px)`;
       }
     </script>
+    <script src="../assets/js/news.js"></script>
   </body>
 </html>
