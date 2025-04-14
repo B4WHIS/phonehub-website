@@ -39,7 +39,7 @@
               <a class="nav-link" href="../index.html#contact">Liên hệ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../index.html#cart">Giỏ hàng</a>
+              <a class="nav-link" href="../pages/cart.html">Giỏ hàng</a>
             </li>
           </ul>
           <div class="d-flex">
@@ -53,9 +53,19 @@
     <!-- Chi tiết sản phẩm -->
     <section class="py-5 mt-3">
       <h1 class="container border-bottom" id="product-name"></h1>
-      <div class="container all p-4">
+      <div class="container all p-4" id="product-container">
         <div class="row">
           <div class="col-md-6 product-detail d-flex flex-column">
+            <img
+              id="product-image"
+              src=""
+              alt="Product Image"
+              class="img-fluid"
+            />
+            <div
+              id="thumbnail-container"
+              class="mt-3 d-flex gap-2 flex-wrap"
+            ></div>
             <img
               id="product-image"
               src=""
@@ -77,6 +87,9 @@
               <p class="dl">Giới thiệu về máy:</p>
               <p id="product-description"></p>
               <div class="mt-3 p-3">
+                <button id="add-to-cart" class="btn btn-outline-dark">
+                  Thêm vào giỏ
+                </button>
                 <button id="add-to-cart" class="btn btn-outline-dark">
                   Thêm vào giỏ
                 </button>
@@ -121,9 +134,10 @@
           product.variants.forEach((variant, index) => {
             const li = document.createElement("li");
             li.innerHTML = `
-              <button type="button" 
-                      id="color-option-${index}" 
-                      class="color-option btn ${index === 0 ? "active" : ""}" 
+              <button type="button"
+                      id="color-option-${index}"
+                      class="color-option btn ${index === 0 ? "active" : ""}"
+                      class="color-option btn ${index === 0 ? "active" : ""}"
                       style="background-color: ${variant.colorCode}"
                       data-variant-index="${index}"
                       title="${variant.color}">
@@ -137,11 +151,14 @@
           currentVariant.storageOptions.forEach((option, index) => {
             const li = document.createElement("li");
             li.innerHTML = `
-              <button type="button" 
-                      id="storage-option-${index}" 
+              <button type="button"
+                      id="storage-option-${index}"
                       class="storage-option btn btn-outline-light ${
                         index === 0 ? "active" : ""
-                      }" 
+                      }"
+                      class="storage-option btn btn-outline-light ${
+                        index === 0 ? "active" : ""
+                      }"
                       data-storage-index="${index}">
                 ${option.capacity}
               </button>
@@ -154,9 +171,11 @@
           );
           currentVariant.images.forEach((image, index) => {
             const img = document.createElement("img");
+
             img.src = image;
             img.alt = `Thumbnail ${index + 1}`;
             img.className = `thumbnail ${index === 0 ? "active" : ""}`;
+
             img.dataset.imageIndex = index;
             thumbnailContainer.appendChild(img);
           });
@@ -178,10 +197,13 @@
               currentVariant.storageOptions.forEach((option, index) => {
                 const li = document.createElement("li");
                 li.innerHTML = `
-                  <button type="button" 
+                  <button type="button"
                           class="storage-option btn btn-outline-light ${
                             index === 0 ? "active" : ""
-                          }" 
+                          }"
+                          class="storage-option btn btn-outline-light ${
+                            index === 0 ? "active" : ""
+                          }"
                           data-storage-index="${index}">
                     ${option.capacity}
                   </button>
@@ -196,9 +218,11 @@
               thumbnailContainer.innerHTML = "";
               currentVariant.images.forEach((image, index) => {
                 const img = document.createElement("img");
+
                 img.src = image;
                 img.alt = `Thumbnail ${index + 1}`;
                 img.className = `thumbnail ${index === 0 ? "active" : ""}`;
+
                 img.dataset.imageIndex = index;
                 thumbnailContainer.appendChild(img);
               });
@@ -260,6 +284,8 @@
         } else {
           document.querySelector(".container").innerHTML =
             "<h2>Sản phẩm không tồn tại</h2>";
+          document.querySelector(".container").innerHTML =
+            "<h2>Sản phẩm không tồn tại</h2>";
         }
       });
 
@@ -275,5 +301,6 @@
         );
       }
     </script>
+    <script src="../assets/js/cart.js"></script>
   </body>
 </html>
