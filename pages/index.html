@@ -127,6 +127,11 @@
       <div class="container">
         <h2 class="text-center mb-4">Danh sách sản phẩm</h2>
         <div id="product-brands"></div>
+        <div class="text-center mt-4">
+          <a href="../pages/product.html" class="btn btn-outline-dark btn-lg"
+            >Xem thêm sản phẩm</a
+          >
+        </div>
       </div>
     </section>
 
@@ -146,46 +151,6 @@
     </footer>
 
     <script src="/assets/js/product.js"></script>
-
-    <script>
-      function displayProducts() {
-        const productBrands = document.getElementById("product-brands");
-        productBrands.innerHTML = "";
-
-        for (const brand in products) {
-          const brandSection = document.createElement("div");
-          brandSection.className = "brand-section mb-5 reveal";
-          brandSection.innerHTML = `
-      <h3 class="mb-3">${brand.charAt(0).toUpperCase() + brand.slice(1)}</h3>
-      <div class="row" id="product-list-${brand}">
-      </div>
-      `;
-          productBrands.appendChild(brandSection);
-
-          const productList = document.getElementById(`product-list-${brand}`);
-          products[brand].forEach((product) => {
-            const col = document.createElement("div");
-            col.className = "col-md-4 col-lg-3 mb-4";
-            col.innerHTML = `
-        <div class="card product-card h-100">
-          <img src="${product.mainImage}" alt="${product.name}" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">${product.name}</h5>
-            <p class="card-text">${product.basePrice}</p>
-            <div class="button-group ">
-              
-              <a href="/pages/product-detail.html?id=${product.id}" class="btn btn-dark">Xem chi tiết</a>
-            </div>
-          </div>
-        </div>
-      `;
-            productList.appendChild(col);
-          });
-        }
-
-        reveal();
-      }
-      displayProducts();
-    </script>
+    <script src="../assets/js/index.js"></script>
   </body>
 </html>
