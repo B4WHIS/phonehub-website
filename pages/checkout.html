@@ -6,66 +6,27 @@
     <title>Thanh Toán - PhoneHub</title>
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
       .checkout-section {
         padding: 100px 0;
         background: #ffffff;
-        position: relative;
-      }
-      .checkout-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #dbeafe, #ffffff);
-        opacity: 0.5;
-        z-index: 0;
-      }
-      .container {
-        position: relative;
-        z-index: 1;
       }
       .customer-info,
       .order-summary {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
+        background: #fff;
         border-radius: 16px;
         padding: 30px;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         border: 2px solid #bfdbfe;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .customer-info:hover,
-      .order-summary:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
       }
       .form-control {
         border-radius: 10px;
         border: 1px solid #bfdbfe;
         background: #f8fafc;
-        transition: all 0.3s ease;
       }
       .form-control:focus {
         border-color: #3b82f6;
         box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
-        background: #fff;
-      }
-      .form-control::placeholder {
-        color: #94a3b8;
-      }
-      .form-check-input {
-        border: 1px solid #bfdbfe;
-      }
-      .form-check-input:checked {
-        background-color: #3b82f6;
-        border-color: #3b82f6;
-      }
-      .form-check-label {
-        color: #1e293b;
       }
       .btn-primary {
         background: linear-gradient(45deg, #3b82f6, #1e40af);
@@ -74,34 +35,10 @@
         padding: 14px;
         font-size: 1.1rem;
         font-weight: 600;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-      }
-      .btn-primary::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        transition: width 0.6s ease, height 0.6s ease;
-      }
-      .btn-primary:hover::before {
-        width: 300px;
-        height: 300px;
-      }
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
       }
       h2 {
         color: #1e293b;
         font-weight: 700;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       }
       h4 {
         color: #3b82f6;
@@ -116,10 +53,6 @@
         border-radius: 12px;
         margin-bottom: 20px;
         border: 1px solid #e0f2fe;
-        transition: background 0.3s ease;
-      }
-      .order-item:hover {
-        background: #eff6ff;
       }
       .order-item img {
         width: 80px;
@@ -134,6 +67,7 @@
       }
       .order-item p {
         color: #475569;
+        margin-bottom: 2px;
       }
       .order-summary .d-flex {
         padding: 10px 0;
@@ -142,47 +76,6 @@
       .order-summary .fw-bold {
         font-size: 1.3rem;
         color: #1e293b;
-      }
-      .progress-bar {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 40px;
-        background: #eff6ff;
-        padding: 15px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      }
-      .progress-step {
-        flex: 1;
-        text-align: center;
-        padding: 10px;
-        color: #64748b;
-        font-size: 0.9rem;
-        position: relative;
-        transition: all 0.3s ease;
-      }
-      .progress-step.active {
-        background: #3b82f6;
-        color: #fff;
-        border-radius: 8px;
-      }
-      .progress-step::after {
-        content: "→";
-        position: absolute;
-        top: 50%;
-        right: -15px;
-        transform: translateY(-50%);
-        color: #bfdbfe;
-        font-size: 1.2rem;
-      }
-      .progress-step:last-child::after {
-        display: none;
-      }
-      footer {
-        background: #ffffff;
-        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
-        padding: 25px 0;
-        color: #64748b;
       }
       .error-message {
         font-size: 0.9rem;
@@ -198,38 +91,51 @@
         text-align: center;
         font-weight: 500;
       }
-      .table {
-        background: #fff;
+      .empty-cart-message {
+        color: #475569;
+        text-align: center;
+        font-style: italic;
+      }
+      /* Add CSS for navbar toggle without Bootstrap JS */
+      .navbar-collapse {
+        display: none;
+      }
+      .navbar-collapse.show {
+        display: block;
+      }
+      @media (min-width: 992px) {
+        .navbar-collapse {
+          display: flex !important;
+        }
+      }
+      /* Style for customer data table */
+      .customer-data-table {
+        display: none;
+        margin-top: 20px;
+        border-collapse: collapse;
+        width: 100%;
+        background: #f8fafc;
         border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border: 1px solid #bfdbfe;
       }
-      .table th,
-      .table td {
-        vertical-align: middle;
-        padding: 15px;
+      .customer-data-table th,
+      .customer-data-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #e0f2fe;
       }
-      .table th {
-        background: #3b82f6;
-        color: #fff;
-        border: none;
+      .customer-data-table th {
+        background: #dbeafe;
+        color: #1e293b;
+        font-weight: 600;
       }
-      .table td {
-        border-color: #e0f2fe;
-      }
-      @media (max-width: 767px) {
-        .progress-bar {
-          flex-direction: column;
-          gap: 10px;
-        }
-        .progress-step::after {
-          display: none;
-        }
+      .customer-data-table td {
+        color: #475569;
       }
     </style>
   </head>
-
   <body>
-    <!-- Nav -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <div class="nav-logo">
@@ -241,24 +147,19 @@
             />
           </a>
         </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
+        <button class="navbar-toggler" type="button" onclick="toggleNavbar()">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#home">Trang chủ</a>
+              <a class="nav-link" href="../pages/index.html">Trang chủ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#products">Sản phẩm</a>
+              <a class="nav-link" href="../pages/product.html">Sản phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Liên hệ</a>
+              <a class="nav-link" href="../pages/about.html">Liên hệ</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../pages/cart.html">Giỏ hàng</a>
@@ -285,11 +186,10 @@
     </nav>
 
     <section class="checkout-section">
-      <div class="container reveal reveal-top">
+      <div class="container">
         <h2 class="text-center mb-5">Thanh Toán</h2>
-
         <div class="row">
-          <div class="col-md-7 mb-4 reveal reveal-left">
+          <div class="col-md-7 mb-4">
             <div class="customer-info">
               <h4>Thông Tin Khách Hàng</h4>
               <form id="checkoutForm">
@@ -346,7 +246,6 @@
                     placeholder="Ghi chú cho đơn hàng"
                   ></textarea>
                 </div>
-
                 <h4 class="mt-4">Phương Thức Thanh Toán</h4>
                 <div class="mb-3">
                   <div class="form-check mb-2">
@@ -390,8 +289,7 @@
               </form>
             </div>
           </div>
-
-          <div class="col-md-5 mb-4 reveal reveal-right">
+          <div class="col-md-5 mb-4">
             <div class="order-summary">
               <h4>Tóm Tắt Đơn Hàng</h4>
               <div id="order-items"></div>
@@ -418,196 +316,232 @@
             </div>
           </div>
         </div>
-
         <div class="row mt-5">
           <div class="col-12">
             <div class="success-message" id="successMessage">
               Đơn hàng của bạn đã được đặt thành công! Cảm ơn bạn đã mua sắm tại
               PhoneHub.
             </div>
-            <div id="resultTable" style="display: none">
-              <h4>Thông Tin Đơn Hàng Đã Đặt</h4>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Họ và Tên</th>
-                    <th>Email</th>
-                    <th>Số Điện Thoại</th>
-                    <th>Địa Chỉ</th>
-                    <th>Ghi Chú</th>
-                    <th>Phương Thức Thanh Toán</th>
-                  </tr>
-                </thead>
-                <tbody id="customerData"></tbody>
-              </table>
-            </div>
+            <!-- Add table for customer data -->
+            <table class="customer-data-table" id="customerDataTable">
+              <thead>
+                <tr>
+                  <th>Thông Tin</th>
+                  <th>Chi Tiết</th>
+                </tr>
+              </thead>
+              <tbody id="customerDataBody"></tbody>
+            </table>
           </div>
         </div>
       </div>
     </section>
-
     <footer class="py-4 text-center">
       <p>© 2025 PhoneHub. All rights reserved.</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      $(document).ready(function () {
-        function displayCart() {
-          const cart = JSON.parse(localStorage.getItem("cart")) || [];
-          const orderItems = $("#order-items");
-          orderItems.empty();
+      function displayCart() {
+        const orderItems = document.getElementById("order-items");
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        orderItems.innerHTML = "";
+        let subtotal = 0;
 
-          let subtotal = 0;
-
-          if (cart.length === 0) {
-            orderItems.append(
-              '<p class="text-center">Giỏ hàng của bạn đang trống.</p>'
-            );
-            $("#subtotal").text("0₫");
-            $("#total").text("0₫");
-            return;
-          }
-
-          cart.forEach((item) => {
-            const price = parseFloat(
-              item.price.replace("₫", "").replace(/\./g, "")
-            );
-            const itemTotal = price * item.quantity;
-            subtotal += itemTotal;
-
-            orderItems.append(`
-              <div class="order-item d-flex align-items-center">
-                <img src="${item.image}" alt="${item.name}" />
-                <div class="ms-3 flex-grow-1">
-                  <h6 class="mb-1">${item.name}</h6>
-                  <p class="mb-0">Số lượng: ${item.quantity}</p>
-                </div>
-                <p class="mb-0">${itemTotal.toLocaleString("vi-VN")}₫</p>
-              </div>
-            `);
-          });
-
-          const shipping = 50000;
-          const total = subtotal + shipping;
-
-          $("#subtotal").text(`${subtotal.toLocaleString("vi-VN")}₫`);
-          $("#total").text(`${total.toLocaleString("vi-VN")}₫`);
+        if (cart.length === 0) {
+          orderItems.innerHTML =
+            '<p class="empty-cart-message">Giỏ hàng của bạn đang trống. Vui lòng chọn sản phẩm để tiếp tục.</p>';
+          document.getElementById("subtotal").textContent = "0₫";
+          document.getElementById("total").textContent = "0₫";
+          document.getElementById("confirmPayment").disabled = true;
+          return;
         }
 
-        displayCart();
+        cart.forEach((item) => {
+          const priceValue = parseFloat(
+            item.price.replace("₫", "").replace(/\./g, "").replace("đ", "")
+          );
+          const itemTotal = priceValue * item.quantity;
+          subtotal += itemTotal;
 
-        function isValidEmail(email) {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          return emailRegex.test(email);
+          const itemDiv = document.createElement("div");
+          itemDiv.className = "order-item d-flex align-items-center";
+          itemDiv.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="ms-3 flex-grow-1">
+              <h6 class="mb-1">${item.name}</h6>
+              <p class="mb-0">Màu sắc: ${item.color}</p>
+              <p class="mb-0">Dung lượng: ${item.storage}</p>
+              <p class="mb-0">Giá: ${item.price}</p>
+              <p class="mb-0">Số lượng: ${item.quantity}</p>
+            </div>
+            <p class="mb-0">${itemTotal.toLocaleString("vi-VN")}₫</p>
+          `;
+          orderItems.appendChild(itemDiv);
+        });
+
+        const shipping = 50000;
+        document.getElementById(
+          "subtotal"
+        ).textContent = `${subtotal.toLocaleString("vi-VN")}₫`;
+        document.getElementById("total").textContent = `${(
+          subtotal + shipping
+        ).toLocaleString("vi-VN")}₫`;
+        document.getElementById("confirmPayment").disabled = false;
+      }
+
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function isValidPhone(phone) {
+        return /^0\d{9}$/.test(phone);
+      }
+
+      function displayCustomerData(data) {
+        const tableBody = document.getElementById("customerDataBody");
+        tableBody.innerHTML = "";
+
+        const rows = [
+          { label: "Họ và Tên", value: data.fullName },
+          { label: "Email", value: data.email },
+          { label: "Số Điện Thoại", value: data.phone },
+          { label: "Địa Chỉ", value: data.address },
+          { label: "Ghi Chú", value: data.notes || "Không có ghi chú" },
+          {
+            label: "Phương Thức Thanh Toán",
+            value: formatPaymentMethod(data.paymentMethod),
+          },
+        ];
+
+        rows.forEach((row) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${row.label}</td>
+            <td>${row.value}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+
+        document.getElementById("customerDataTable").style.display = "table";
+      }
+
+      function formatPaymentMethod(method) {
+        switch (method) {
+          case "cod":
+            return "Thanh toán khi nhận hàng (COD)";
+          case "bankTransfer":
+            return "Chuyển khoản ngân hàng";
+          case "creditCard":
+            return "Thẻ tín dụng/Thẻ ghi nợ";
+          default:
+            return method;
         }
+      }
 
-        function isValidPhone(phone) {
-          const phoneRegex = /^0\d{9}$/;
-          return phoneRegex.test(phone);
-        }
-
-        $("#confirmPayment").click(function (e) {
+      document
+        .getElementById("confirmPayment")
+        .addEventListener("click", function (e) {
           e.preventDefault();
 
-          let fullName = $("#fullName").val().trim();
-          let email = $("#email").val().trim();
-          let phone = $("#phone").val().trim();
-          let address = $("#address").val().trim();
-          let notes = $("#notes").val().trim();
-          let paymentMethod = $("input[name='paymentMethod']:checked").val();
+          const errorMessages = document.querySelectorAll(".error-message");
+          errorMessages.forEach((msg) => msg.remove());
 
-          $(".error-message").remove();
+          const fullName = document.getElementById("fullName").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const address = document.getElementById("address").value.trim();
+          const notes = document.getElementById("notes").value.trim();
+          const paymentMethod = document.querySelector(
+            'input[name="paymentMethod"]:checked'
+          ).value;
+
           let isValid = true;
 
           if (!fullName) {
-            $("#fullName").after(
-              '<p class="error-message text-danger">Vui lòng nhập họ và tên.</p>'
-            );
+            const error = document.createElement("p");
+            error.className = "error-message text-danger";
+            error.textContent = "Vui lòng nhập họ và tên.";
+            document.getElementById("fullName").after(error);
             isValid = false;
           }
           if (!email) {
-            $("#email").after(
-              '<p class="error-message text-danger">Vui lòng nhập email.</p>'
-            );
+            const error = document.createElement("p");
+            error.className = "error-message text-danger";
+            error.textContent = "Vui lòng nhập email.";
+            document.getElementById("email").after(error);
             isValid = false;
           } else if (!isValidEmail(email)) {
-            $("#email").after(
-              '<p class="error-message text-danger">Email không đúng định dạng.</p>'
-            );
+            const error = document.createElement("p");
+            error.className = "error-message text-danger";
+            error.textContent = "Email không đúng định dạng.";
+            document.getElementById("email").after(error);
             isValid = false;
           }
           if (!phone) {
-            $("#phone").after(
-              '<p class="error-message text-danger">Vui lòng nhập số điện thoại.</p>'
-            );
+            const error = document.createElement("p");
+            error.className = "error-message text-danger";
+            error.textContent = "Vui lòng nhập số điện thoại.";
+            document.getElementById("phone").after(error);
             isValid = false;
           } else if (!isValidPhone(phone)) {
-            $("#phone").after(
-              '<p class="error-message text-danger">Số điện thoại không đúng định dạng (10 số, bắt đầu bằng 0).</p>'
-            );
+            const error = document.createElement("p");
+            error.className = "error-message text-danger";
+            error.textContent = "Số điện thoại không đúng định dạng.";
+            document.getElementById("phone").after(error);
             isValid = false;
           }
           if (!address) {
-            $("#address").after(
-              '<p class="error-message text-danger">Vui lòng nhập địa chỉ giao hàng.</p>'
-            );
+            const error = document.createElement("p");
+            error.className = "error-message text-danger";
+            error.textContent = "Vui lòng nhập địa chỉ.";
+            document.getElementById("address").after(error);
             isValid = false;
           }
 
           const cart = JSON.parse(localStorage.getItem("cart")) || [];
           if (cart.length === 0) {
-            alert(
-              "Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm trước khi thanh toán."
-            );
+            alert("Giỏ hàng trống. Vui lòng chọn sản phẩm.");
             isValid = false;
           }
 
           if (isValid) {
-            let paymentMethodText = "";
-            if (paymentMethod === "cod")
-              paymentMethodText = "Thanh toán khi nhận hàng (COD)";
-            else if (paymentMethod === "bankTransfer")
-              paymentMethodText = "Chuyển khoản ngân hàng";
-            else if (paymentMethod === "creditCard")
-              paymentMethodText = "Thẻ tín dụng/Thẻ ghi nợ";
+            const successMessage = document.getElementById("successMessage");
+            successMessage.style.display = "block";
 
-            let row = `
-              <tr>
-                <td>${fullName}</td>
-                <td>${email}</td>
-                <td>${phone}</td>
-                <td>${address}</td>
-                <td>${notes || "Không có ghi chú"}</td>
-                <td>${paymentMethodText}</td>
-              </tr>
-            `;
+            const customerData = {
+              fullName: fullName,
+              email: email,
+              phone: phone,
+              address: address,
+              notes: notes,
+              paymentMethod: paymentMethod,
+            };
 
-            $("#successMessage").fadeIn();
-            $("#customerData").html(row);
-            $("#resultTable").show();
+            displayCustomerData(customerData);
 
-            $("html, body").animate(
-              {
-                scrollTop: $("#successMessage").offset().top - 100,
-              },
-              1000
-            );
+            window.scrollTo({
+              top: successMessage.offsetTop - 100,
+              behavior: "smooth",
+            });
 
             localStorage.removeItem("cart");
             displayCart();
-            $("#checkoutForm")[0].reset();
+            document.getElementById("checkoutForm").reset();
           }
         });
 
-        $("#checkoutForm input, #checkoutForm textarea").on(
-          "input",
-          function () {
-            $("#successMessage").fadeOut();
-            $("#resultTable").hide();
-          }
-        );
-      });
+      function searchProducts() {
+        const query = document.getElementById("searchInput").value.trim();
+        if (query) {
+          alert("Tìm kiếm: " + query);
+        }
+      }
+
+      function toggleNavbar() {
+        const navbarNav = document.getElementById("navbarNav");
+        navbarNav.classList.toggle("show");
+      }
+
+      displayCart();
     </script>
   </body>
 </html>

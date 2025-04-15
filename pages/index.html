@@ -32,13 +32,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#home">Trang chủ</a>
+              <a class="nav-link" href="../pages/index.html">Trang chủ</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../pages/product.html">Sản phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Liên hệ</a>
+              <a class="nav-link" href="../pages/about.html">Liên hệ</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../pages/news.html">Tin tức</a>
@@ -180,11 +180,10 @@
               col.innerHTML = `
             <div class="card product-card">
               <img src="${product.mainImage}" alt="${product.name}" class="card-img-top">
-              <div class="card-body">
+              <div class="card-body h-100">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-text">${product.basePrice}</p>
                 <div class="button-group">
-                  <button class="btn btn-outline-dark" onclick="addToCart('${product.id}')">Thêm</button>
                   <a href="/pages/product-detail.html?id=${product.id}" class="btn btn-dark">Xem chi tiết</a>
                 </div>
               </div>
