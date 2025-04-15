@@ -6,15 +6,76 @@
     <title>Chi tiết sản phẩm - PhoneStore</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <style>
+      .list-dl,
+      .list-ms {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .list-dl li button {
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background: #f8f9fa;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .list-dl li button.active,
+      .list-dl li button:hover {
+        background: #0d6efd;
+        color: white;
+        border-color: #0d6efd;
+      }
+      .list-ms li button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .list-ms li button.active,
+      .list-ms li button:hover {
+        border: 2px solid #0d6efd;
+      }
+      .dl {
+        font-weight: bold;
+        margin-top: 15px;
+      }
+      .product-detail img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+      }
+      .thumbnail {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 1px solid #ddd;
+      }
+      .thumbnail.active {
+        border: 2px solid #0d6efd;
+      }
+      #product-price {
+        font-size: 1.5rem;
+        color: #dc3545;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
-    <!-- Nav  -->
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <div class="nav-logo">
           <img
-            src="/assets/images/index_img/logo_3.jpg"
+            src="../assets/images/index_img/logo_3.jpg"
             alt=""
             style="height: 40px; margin-right: 30px"
           />
@@ -43,8 +104,8 @@
             </li>
           </ul>
           <div class="d-flex">
-            <a href="#login" class="btn btn-outline-dark me-2">Đăng nhập</a>
-            <a href="#register" class="btn btn-dark">Đăng ký</a>
+            <a href="../pages/login.html" class="btn btn-outline-dark me-2">Đăng nhập</a>
+            <a href="../pages/register.html" class="btn btn-dark">Đăng ký</a>
           </div>
         </div>
       </div>
@@ -88,7 +149,199 @@
       </div>
     </section>
 
-    <script src="/assets/js/product.js"></script>
-    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/product.js"></script>
+    <script>
+    
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get("id");
+
+      
+      let product = null;
+      for (const brand in products) {
+        product = products[brand].find((p) => p.id === productId);
+        if (product) break;
+      }
+
+      if (!product) {
+        document.getElementById("product-container").innerHTML =
+          "<p>Sản phẩm không tồn tại.</p>";
+      } else {
+        
+        document.getElementById("product-name").textContent = product.name;
+        document.getElementById("product-image").src = product.mainImage;
+        document.getElementById("product-price").textContent = product.basePrice;
+        document.getElementById("product-description").textContent =
+          product.description;
+
+       
+        const thumbnailContainer = document.getElementById("thumbnail-container");
+        const allImages = new Set();
+        product.variants.forEach((variant) => {
+          variant.images.forEach((img) => allImages.add(img));
+        });
+        allImages.forEach((imgSrc) => {
+          const img = document.createElement("img");
+          img.src = imgSrc;
+          img.classList.add("thumbnail");
+          if (imgSrc === product.mainImage) img.classList.add("active");
+          img.addEventListener("click", () => {
+            document.querySelectorAll(".thumbnail").forEach((t) => t.classList.remove("active"));
+            img.classList.add("active");
+            document.getElementById("product-image").src = imgSrc;
+          });
+          thumbnailContainer.appendChild(img);
+        });
+
+        
+        const storageOptions = document.getElementById("storage-options");
+        const uniqueStorages = new Set();
+        product.variants.forEach((variant) => {
+          variant.storageOptions.forEach((opt) => {
+            if (!uniqueStorages.has(opt.capacity)) {
+              uniqueStorages.add(opt.capacity);
+              const li = document.createElement("li");
+              const button = document.createElement("button");
+              button.textContent = opt.capacity;
+              button.setAttribute("data-capacity", opt.capacity);
+              button.addEventListener("click", () => {
+                document.querySelectorAll("#storage-options button").forEach((b) => b.classList.remove("active"));
+                button.classList.add("active");
+                updatePrice();
+              });
+              li.appendChild(button);
+              storageOptions.appendChild(li);
+            }
+          });
+        });
+
+      
+        const colorOptions = document.getElementById("color-options");
+        product.variants.forEach((variant) => {
+          const li = document.createElement("li");
+          const button = document.createElement("button");
+          button.style.backgroundColor = variant.colorCode;
+          button.setAttribute("data-color", variant.color);
+          button.addEventListener("click", () => {
+            document.querySelectorAll("#color-options button").forEach((b) => b.classList.remove("active"));
+            button.classList.add("active");
+            updatePrice();
+            
+            const selectedVariant = product.variants.find(
+              (v) => v.color === variant.color
+            );
+            document.getElementById("product-image").src = selectedVariant.images[0];
+           
+            document.querySelectorAll(".thumbnail").forEach((t) => {
+              t.classList.remove("active");
+              if (t.src.includes(selectedVariant.images[0])) {
+                t.classList.add("active");
+              }
+            });
+          });
+          li.appendChild(button);
+          colorOptions.appendChild(li);
+        });
+
+        if (storageOptions.children.length > 0) {
+          storageOptions.children[0].querySelector("button").classList.add("active");
+        }
+        if (colorOptions.children.length > 0) {
+          colorOptions.children[0].querySelector("button").classList.add("active");
+          const firstColor = product.variants[0].color;
+          const firstVariant = product.variants.find((v) => v.color === firstColor);
+          document.getElementById("product-image").src = firstVariant.images[0];
+        }
+
+       
+        function updatePrice() {
+          const selectedColor = document.querySelector("#color-options button.active")?.getAttribute("data-color");
+          const selectedStorage = document.querySelector("#storage-options button.active")?.getAttribute("data-capacity");
+
+          if (selectedColor && selectedStorage) {
+            const variant = product.variants.find((v) => v.color === selectedColor);
+            const storageOption = variant?.storageOptions.find(
+              (opt) => opt.capacity === selectedStorage
+            );
+            if (storageOption) {
+              document.getElementById("product-price").textContent = storageOption.price;
+            }
+          }
+        }
+
+       
+        document.getElementById("buy-now").addEventListener("click", () => {
+          const selectedColor = document.querySelector("#color-options button.active")?.getAttribute("data-color");
+          const selectedStorage = document.querySelector("#storage-options button.active")?.getAttribute("data-capacity");
+
+          if (!selectedColor || !selectedStorage) {
+            alert("Vui lòng chọn màu sắc và dung lượng.");
+            return;
+          }
+
+          const variant = product.variants.find((v) => v.color === selectedColor);
+          const storageOption = variant.storageOptions.find(
+            (opt) => opt.capacity === selectedStorage
+          );
+
+          const cartItem = {
+            id: product.id,
+            name: `${product.name} (${selectedColor}, ${selectedStorage})`,
+            price: storageOption.price,
+            image: variant.images[0],
+            color: selectedColor,
+            storage: selectedStorage,
+            quantity: 1,
+          };
+
+          
+          localStorage.setItem("cart", JSON.stringify([cartItem]));
+
+          
+          window.location.href = "../pages/checkout.html";
+        });
+
+       
+        document.getElementById("add-to-cart").addEventListener("click", () => {
+          const selectedColor = document.querySelector("#color-options button.active")?.getAttribute("data-color");
+          const selectedStorage = document.querySelector("#storage-options button.active")?.getAttribute("data-capacity");
+
+          if (!selectedColor || !selectedStorage) {
+            alert("Vui lòng chọn màu sắc và dung lượng.");
+            return;
+          }
+
+          const variant = product.variants.find((v) => v.color === selectedColor);
+          const storageOption = variant.storageOptions.find(
+            (opt) => opt.capacity === selectedStorage
+          );
+
+          const cartItem = {
+            id: product.id,
+            name: `${product.name} (${selectedColor}, ${selectedStorage})`,
+            price: storageOption.price,
+            image: variant.images[0],
+            color: selectedColor,
+            storage: selectedStorage,
+            quantity: 1,
+          };
+
+          
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          const existingItem = cart.find(
+            (item) =>
+              item.id === cartItem.id &&
+              item.color === cartItem.color &&
+              item.storage === cartItem.storage
+          );
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push(cartItem);
+          }
+          localStorage.setItem("cart", JSON.stringify(cart));
+          alert("Sản phẩm đã được thêm vào giỏ hàng!");
+        });
+      }
+    </script>
   </body>
 </html>
